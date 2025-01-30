@@ -1,0 +1,47 @@
+"use client";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Button from "../buttons/Button";
+import { HiMiniSparkles } from "react-icons/hi2";
+
+export default function Hero() {
+  const text = "Hej! Jestem Patryk Jędrzejek";
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayText(text.slice(0, index + 1));
+      index++;
+
+      if (index >= text.length) {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="px-6 lg:px-20 mt-8 min-h-[100vh] grid lg:grid-cols-2">
+      <div>
+        <motion.h1
+          className="text-4xl font-extrabold leading-snug"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {displayText}
+        </motion.h1>
+        <p className="mt-10 mb-10 text-2xl lg:w-1/2">
+          Potrzebujesz kreatywnego grafika z pasją do tworzenia wizualnych
+          opowieści?
+        </p>
+        <Button text="Porozmawiajmy" link="/kontakt" />
+      </div>
+      <div className="flex justify-end">
+        <HiMiniSparkles className="text-9xl text-blue-500" />
+      </div>
+    </section>
+  );
+}
