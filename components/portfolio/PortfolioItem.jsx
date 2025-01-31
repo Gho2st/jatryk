@@ -2,25 +2,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 
-export default function PortfolioItem() {
+export default function PortfolioItem(props) {
   return (
-    <div>
-      <Image
-        src={"/portfolio/pekario.png"}
-        width={100}
-        height={100}
-        layout="responsive"
-        alt=""
-      />
-      <div className="px-6 my-10">
-        <h3 className="text-3xl font-semibold">Pekario</h3>
-        <p className="my-6">
-          Jeżeli twoja firma potrzebuje pomocy gdyż boryka się z obniżaną
-          jakością jej postrzegania przez złą identyfikację marki to napisz do
-          mnie!!
-        </p>
+    <div
+      className={`mt-16 xl:mt-32 xl:px-32 xl:flex xl:gap-24 xl:justify-center ${
+        props.index % 2 === 0 ? "" : "xl:flex-row-reverse"
+      }`}
+    >
+      {/* Image Section */}
+      <div className="xl:w-1/3 ">
+        <Image
+          src={props.src}
+          width={100}
+          height={100}
+          layout="responsive"
+          alt={props.alt}
+        />
+      </div>
+
+      {/* Text Section */}
+      <div className="px-6 xl:w-2/5">
+        <h3 className="text-3xl xl:text-4xl font-semibold mt-8 xl:mt-0">
+          {props.name}
+        </h3>
+        <p className="my-6">{props.text}</p>
         <div className="flex gap-2 items-center">
-          <Link href="">Zobacz więcej</Link>
+          <Link href={props.link}>Zobacz więcej</Link>
           <FaArrowRightToBracket />
         </div>
       </div>

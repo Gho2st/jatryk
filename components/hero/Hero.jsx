@@ -23,17 +23,17 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 lg:px-20 mt-8 min-h-[100vh] grid lg:grid-cols-2">
+    <section className="px-6 lg:px-20 xl:px-32 mt-8 min-h-[84vh] xl:mt-16  grid lg:grid-cols-2 ">
       <div>
         <motion.h1
-          className="text-4xl font-extrabold leading-snug"
+          className="text-4xl xl:text-7xl font-extrabold leading-snug h-32"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           {displayText}
         </motion.h1>
-        <p className="mt-10 mb-10 text-2xl lg:w-1/2">
+        <p className="mt-10 mb-10 xl:mt-20 xl:mb-16 text-2xl xl:text-4xl lg:w-1/2 xl:w-full">
           Potrzebujesz kreatywnego grafika z pasją do tworzenia wizualnych
           opowieści?
         </p>

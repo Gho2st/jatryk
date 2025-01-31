@@ -20,7 +20,7 @@ export default function Nav() {
   return (
     <>
       <header>
-        <nav className="px-6 lg:px-20 py-10 flex justify-between items-center">
+        <nav className="px-6 lg:px-20 xl:px-32 py-10 flex justify-between items-center">
           {/* Logo */}
           <div className="z-50 relative">
             <Link href={"/"} onClick={closeMenu}>
@@ -46,7 +46,7 @@ export default function Nav() {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block text-2xl">
             <ul className="flex gap-10 ">
               <li>
                 <Link href={"/"}>Strona Główna</Link>

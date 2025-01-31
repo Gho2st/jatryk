@@ -1,11 +1,11 @@
 import ReviewItem from "./ReviewItem";
 export default function Reviews() {
   return (
-    <section className="px-6 min-h-[100vh] bg-black  ">
-      <h2 className="uppercase text-3xl leading-snug py-10 text-white mb-16">
+    <section className="px-6 xl:px-32 min-h-[100vh] bg-black  ">
+      <h2 className="uppercase text-3xl xl:text-5xl leading-snug py-10 xl:py-24 text-white mb-16 xl:mb-0">
         Sprawdź opinie o mojej pracy
       </h2>
-      <div className="grid gap-8 pb-16">
+      <div className="grid xl:grid-cols-2 gap-8 pb-16">
         <ReviewItem
           name="Anna Kaszuba"
           text="Współpraca z [Imię Grafika] to czysta przyjemność. Stworzył dla mnie logo, które idealnie oddaje charakter mojej marki. Zdecydowanie polecam!"

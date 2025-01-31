@@ -1,11 +1,19 @@
 import Link from "next/link";
+import { FaArrowRightToBracket } from "react-icons/fa6";
 
-export default function Button(props) {
+export default function Button({ link, text }) {
   return (
-    <div className="px-6 py-3 bg-[#EFB036] hover:bg-gray-300  inline-block rounded-xl">
-      <Link className="text-xl font-medium" href={props.link}>
-        {props.text}
-      </Link>
-    </div>
+    <Link
+      href={link}
+      className="inline-block px-6 py-3 text-xl font-medium  bg-[#EFB036] 
+          hover:bg-[#d89c2a] active:bg-[#bf8925] focus:ring-4 focus:ring-[#f4c86f] 
+          rounded-xl shadow-md transition-all duration-300 ease-in-out transform 
+          hover:-translate-y-1 hover:shadow-lg"
+    >
+      <div className="flex items-center gap-3">
+        <div>{text}</div>
+        <FaArrowRightToBracket />
+      </div>
+    </Link>
   );
 }
