@@ -22,7 +22,7 @@ export default function PortfolioItem(props) {
 
       {/* Text Section */}
       <div className="px-6 xl:w-2/5">
-        <h3 className="text-3xl xl:text-4xl font-semibold mt-8 xl:mt-0">
+        <h3 className="text-3xl xl:text-4xl font-semibold mt-12 xl:mt-0">
           {props.name}
         </h3>
         <p className="my-6">{props.text}</p>

@@ -18,8 +18,6 @@ export default function Contact() {
   const sendMail = async (e) => {
     e.preventDefault();
 
-    // es
-
     const fieldsToCheck = { name, email, message };
     const emptyFields = Object.entries(fieldsToCheck)
       .filter(([_, value]) => !value)
@@ -62,7 +60,7 @@ export default function Contact() {
       <Nav />
       {!formSubmitted ? (
         <section className="px-6 xl:px-32">
-          <h1 className="text-4xl xl:text-6xl text-center font-semibold my-24">
+          <h1 className="text-4xl xl:text-6xl text-center font-semibold my-14 xl:my-24">
             Kontakt
           </h1>
           {formError && (
@@ -142,7 +140,7 @@ export default function Contact() {
               </div>
             </form>
             {/* Other ways of contact */}
-            <div className="mb-20 flex flex-col gap-6 items-center ">
+            <div className="mb-24 flex flex-col gap-6 items-center ">
               <div className="flex gap-4">
                 <div className="flex items-center">
                   <FaPhone className="text-2xl" />

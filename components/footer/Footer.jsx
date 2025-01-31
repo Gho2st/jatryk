@@ -8,7 +8,7 @@ export default function Footer() {
         Masz pomysł? Zamieńmy go w rzeczywistość!
       </h2>
       <div className="xl:flex xl:flex-row-reverse xl:justify-between xl:mt-32">
-        <div className="flex flex-col xl:flex-row xl:items-center gap-6 my-10 xl:my-0 py-16 xl:py-0 text-xl text-white">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-6 mb-10 xl:my-0 py-16 xl:py-0 text-xl text-white">
           <Link className="mx-auto" href="/">
             Strona Główna
           </Link>
