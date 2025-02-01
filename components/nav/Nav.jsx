@@ -58,7 +58,7 @@ export default function Nav() {
                 <Link href={"/kontakt"}>Kontakt</Link>
               </li>
               <li>
-                <Link href={"/omnie"}>O Mnie</Link>
+                <Link href={"/o-mnie"}>O Mnie</Link>
               </li>
             </ul>
           </div>
@@ -91,7 +91,7 @@ export default function Nav() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/omnie"} onClick={closeMenu}>
+                  <Link href={"/o-mnie"} onClick={closeMenu}>
                     O Mnie
                   </Link>
                 </li>

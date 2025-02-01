@@ -1,32 +1,112 @@
+"use client";
+import { useState, useEffect } from "react";
 import Nav from "@/components/nav/Nav";
 import Footer from "@/components/footer/Footer";
-import projects from "@/app/data/project";
 import Image from "next/image";
 
-export default async function ProjectPage({ params }) {
-  const slug = (await params).slug; // pobierz dynamiczny parametr
-  console.log("Parametr slug:", slug);
+const fetchProject = async (slug) => {
+  try {
+    const response = await fetch(`/api/getProjectBySlug/${slug}`);
 
-  const currentProject = projects.find((p) => p.id === slug);
+    if (!response.ok) {
+      throw new Error("Projekt nie znaleziony");
+    }
 
-  if (!currentProject) {
+    const project = await response.json();
+    return project;
+  } catch (error) {
+    console.error("Błąd podczas pobierania projektu:", error);
+    return null;
+  }
+};
+
+export default function ProjectPage({ params }) {
+  const [project, setProject] = useState(null);
+  const [slug, setSlug] = useState("");
+  const [isLoading, setIsLoading] = useState(true); // Dodajemy stan ładowania
+
+  useEffect(() => {
+    const getSlug = async () => {
+      const unwrappedParams = await params;
+      const slug = unwrappedParams.slug;
+      setSlug(slug);
+    };
+
+    getSlug();
+  }, [params]);
+
+  useEffect(() => {
+    if (slug) {
+      fetchProject(slug).then((data) => {
+        setProject(data);
+        setIsLoading(false); // Zmieniamy stan na zakończony po załadowaniu danych
+      });
+    }
+  }, [slug]);
+
+  if (isLoading) {
     return (
       <>
         <Nav />
-        <div>
-          <h1>Błąd - nie znaleziono</h1>
+        <div className="text-center my-20 text-lg">
+          <h1>Ładowanie projektu...</h1>
         </div>
         <Footer />
       </>
     );
   }
+
+  if (!slug || !project) {
+    return (
+      <>
+        <Nav />
+        <div className="text-center my-20 text-lg">
+          <h1>Błąd - nie znaleziono projektu</h1>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Nav />
-      <div>
-        <h1>{currentProject.name}</h1>
-        <h3>{currentProject.text}</h3>
-        <Image src={currentProject.src} width={100} height={100}></Image>
+      <div className="px-6 xl:px-32 my-10 mb-24 xl:my-32">
+        <div className="flex flex-col xl:flex-row justify-between">
+          <div className="xl:w-3/5">
+            <h1 className="text-4xl xl:text-5xl">{project.title}</h1>
+            <p className="my-10">{project.description}</p>
+            <p className="text-lg">{project.longDescription}</p>
+          </div>
+          <div className="xl:w-1/4 mt-16 xl:mt-0">
+            {project.imageURL && (
+              <Image
+                src={project.imageURL}
+                alt={project.title}
+                width={300}
+                height={200}
+                layout="responsive"
+              />
+            )}
+          </div>
+        </div>
+
+        {project.additionalImages.length > 0 && (
+          <div className="flex flex-col xl:flex-row gap-8 mt-16 xl:mt-44">
+            {project.additionalImages.map((image, index) => (
+              <div className="xl:w-1/3">
+                <Image
+                  key={index}
+                  src={image}
+                  alt={`Dodatkowe zdjęcie ${index + 1}`}
+                  width={400}
+                  height={300}
+                  layout="responsive"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </>

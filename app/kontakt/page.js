@@ -60,7 +60,7 @@ export default function Contact() {
       <Nav />
       {!formSubmitted ? (
         <section className="px-6 xl:px-32">
-          <h1 className="text-4xl xl:text-6xl text-center font-semibold my-14 xl:my-24">
+          <h1 className="text-4xl xl:text-5xl 2xl:text-6xl text-center font-semibold my-14 2xl:my-24">
             Kontakt
           </h1>
           {formError && (

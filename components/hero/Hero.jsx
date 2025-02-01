@@ -26,14 +26,14 @@ export default function Hero() {
     <section className="px-6 lg:px-20 xl:px-32 mt-8 min-h-[84vh] xl:mt-16  grid lg:grid-cols-2 ">
       <div>
         <motion.h1
-          className="text-4xl xl:text-7xl font-extrabold leading-snug h-32"
+          className="text-4xl xl:text-6xl 2xl:text-7xl xl:h-28 font-extrabold leading-snug 2xl:h-32"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           {displayText}
         </motion.h1>
-        <p className="mt-10 mb-10 xl:mt-20 xl:mb-16 text-2xl xl:text-4xl lg:w-1/2 xl:w-full">
+        <p className="mt-10 mb-10 xl:mt-14 2xl:mt-20 xl:mb-14 2xl:mb-16 text-2xl 2xl:text-4xl lg:w-1/2 xl:w-full">
           Potrzebujesz kreatywnego grafika z pasją do tworzenia wizualnych
           opowieści?
         </p>

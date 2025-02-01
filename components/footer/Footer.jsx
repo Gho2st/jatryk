@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="px-6 xl:px-32 bg-blue-500 ">
-      <h2 className="uppercase text-3xl xl:text-5xl leading-snug py-10 xl:py-24 text-white">
+      <h2 className="uppercase text-3xl xl:text-5xl leading-snug py-10 xl:py-24 text-white xl:leading-snug">
         Masz pomysł? Zamieńmy go w rzeczywistość!
       </h2>
       <div className="xl:flex xl:flex-row-reverse xl:justify-between xl:mt-32">
