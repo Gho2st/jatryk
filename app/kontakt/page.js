@@ -123,10 +123,11 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              {/* <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey="6LetqpUqAAAAABRwX_slcBybtlkC7S4X4QZZEYUo"
-            /> */}
+              <ReCAPTCHA
+                className="mt-4"
+                ref={recaptchaRef}
+                sitekey="6LetqpUqAAAAABRwX_slcBybtlkC7S4X4QZZEYUo"
+              />
               <div className="flex justify-center mb-16 xl:mb-32 mt-6">
                 <button
                   className="px-6 py-3 text-xl font-medium  bg-[#EFB036] 
