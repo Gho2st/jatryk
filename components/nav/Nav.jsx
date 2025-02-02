@@ -46,7 +46,7 @@ export default function Nav() {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:block text-2xl">
+          <div className="hidden lg:block xl:text-xl 2xl:text-2xl">
             <ul className="flex gap-10 ">
               <li>
                 <Link href={"/"}>Strona Główna</Link>

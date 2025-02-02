@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Button from "../buttons/Button";
 import { HiMiniSparkles } from "react-icons/hi2";
+import Image from "next/image";
 
 export default function Hero() {
   const text = "Hej! Jestem Patryk Jędrzejek";
@@ -23,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 lg:px-20 xl:px-32 mt-8 min-h-[84vh] xl:mt-16  grid lg:grid-cols-2 ">
+    <section className="px-6 pb-24 xl:pb-32 pt-14  xl:pt-24 lg:px-20 xl:px-32 grid lg:grid-cols-2 gap-20 xl:gap-12 ">
       <div>
         <motion.h1
           className="text-4xl xl:text-6xl 2xl:text-7xl h-20 xl:h-28 font-extrabold leading-snug 2xl:h-32"
@@ -39,8 +40,17 @@ export default function Hero() {
         </p>
         <Button text="Porozmawiajmy" link="/kontakt" />
       </div>
-      <div className="flex justify-end">
-        <HiMiniSparkles className="text-9xl text-blue-500" />
+      <div className="flex justify-center items-center">
+        {/* <HiMiniSparkles className="text-9xl text-blue-500" /> */}
+        <div className="w-2/3">
+          <Image
+            src={"/grafik.png"}
+            width={100}
+            height={100}
+            layout="responsive"
+            alt="grafika przedstawiajaca Jatryka pracujacego nad grafika"
+          />
+        </div>
       </div>
     </section>
   );
