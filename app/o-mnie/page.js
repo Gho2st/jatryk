@@ -37,7 +37,7 @@ export default function About() {
           {/* items */}
           <div className="grid xl:grid-cols-4 gap-10 mt-20 xl:mt-32">
             <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
-              <p className="text-3xl xl:text-5xl ">1</p>
+              <p className="text-5xl">1</p>
               <p className="mt-8">
                 Umówimy się na spotkanie, na którym wspólnie uzupełnimy brief
                 zawierający kluczowe informacje o marce.
@@ -92,7 +92,7 @@ export default function About() {
             <video
               controls
               playsInline
-              className="w-4/5 max-h-[400px] mx-auto xl:w-2/3 border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
+              className="mx-auto xl:w-2/3 border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.
