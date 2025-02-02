@@ -7,7 +7,7 @@ export default function PortfolioItem(props) {
   const link = "/portfolio/" + props.title;
   return (
     <div
-      className={`mt-16 xl:mt-32 xl:px-32 xl:flex xl:gap-24 xl:justify-center ${
+      className={` xl:mt-32 xl:px-32 xl:flex xl:gap-24 xl:justify-center ${
         props.order % 2 === 0 ? "" : "xl:flex-row-reverse"
       }`}
     >

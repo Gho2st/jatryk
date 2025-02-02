@@ -52,7 +52,7 @@ export default function Nav() {
                 <Link href={"/"}>Strona Główna</Link>
               </li>
               <li>
-                <Link href={"/portfolio"}>Portfolio</Link>
+                <Link href={"#portfolio"}>Portfolio</Link>
               </li>
               <li>
                 <Link href={"/kontakt"}>Kontakt</Link>
@@ -81,7 +81,7 @@ export default function Nav() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/portfolio"} onClick={closeMenu}>
+                  <Link href={"#portfolio"} onClick={closeMenu}>
                     Portfolio
                   </Link>
                 </li>

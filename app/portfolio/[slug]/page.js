@@ -76,7 +76,7 @@ export default function ProjectPage({ params }) {
           <div className="xl:w-3/5">
             <h1 className="text-4xl xl:text-5xl">{project.title}</h1>
             <p className="my-10">{project.description}</p>
-            <p className="text-lg">{project.longDescription}</p>
+            <p className="">{project.longDescription}</p>
           </div>
           <div className="xl:w-1/4 mt-16 xl:mt-0">
             {project.imageURL && (
