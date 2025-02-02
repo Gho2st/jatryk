@@ -5,9 +5,9 @@ import { MdNaturePeople } from "react-icons/md";
 
 export default function Offer() {
   return (
-    <section className="px-6 pb-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
+    <section className="px-6 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
       <div className="text-white flex justify-center">
-        <h2 className="p-4 px-10 mt-20 rounded-xl text-center text-5xl xl:text-6xl font-semibold">
+        <h2 className="px-10 rounded-xl text-center text-5xl xl:text-6xl font-semibold">
           Oferta
         </h2>
       </div>

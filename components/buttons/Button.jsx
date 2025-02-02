@@ -5,7 +5,7 @@ export default function Button({ link, text }) {
   return (
     <Link
       href={link}
-      className="inline-block px-6 py-3 text-xl font-medium  bg-[#EFB036] 
+      className="inline-block px-6 py-3 text-xl font-medium  bg-[#EFB036]  text-black
           hover:bg-[#d89c2a] active:bg-[#bf8925] focus:ring-4 focus:ring-[#f4c86f] 
           rounded-xl shadow-md transition-all duration-300 ease-in-out transform 
           hover:-translate-y-1 hover:shadow-lg"

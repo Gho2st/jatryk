@@ -128,7 +128,7 @@ export default function Contact() {
                 ref={recaptchaRef}
                 sitekey="6LetqpUqAAAAABRwX_slcBybtlkC7S4X4QZZEYUo"
               />
-              <div className="flex justify-center mb-16 xl:mb-32 mt-6">
+              <div className="flex justify-center xl:justify-start mb-16 xl:mb-32 mt-6">
                 <button
                   className="px-6 py-3 text-xl font-medium  bg-[#EFB036] 
                  hover:bg-[#d89c2a] active:bg-[#bf8925] focus:ring-4 focus:ring-[#f4c86f] 

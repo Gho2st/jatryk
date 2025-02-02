@@ -6,10 +6,10 @@ export default function About() {
   return (
     <>
       <Nav />
-      <section className="px-6 xl:px-32 mb-32">
+      <section className="px-6 xl:px-32 pb-20 xl:pb-24">
         <div className="flex">
           <div className="xl:w-1/2">
-            <h1 className="text-4xl xl:text-5xl my-16 font-bold">
+            <h1 className="text-4xl xl:text-5xl mt-12 mb-12 font-bold">
               Trochę więcej o sobie
             </h1>
             <p className="text-xl">
@@ -19,7 +19,7 @@ export default function About() {
               mogę Tobie pomóc w sukcesywnym budowaniu dobrej komunikacji
               wizualnej.
             </p>
-            <p className="text-xl my-10 mb-14">
+            <p className="text-xl my-10">
               Do każdej współpracy z klientem podchodzę indywidualnie, co
               finalnie skutkuje unikalnym projektem logo, strony internetowej,
               czy innego projektu, który został mi zlecony.
@@ -29,9 +29,9 @@ export default function About() {
           <div></div>
         </div>
       </section>
-      <section className="px-6 xl:px-32 pb-24 xl:pb-32 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
+      <section className="px-6 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
         <div>
-          <h2 className="text-4xl xl:text-5xl leading-snug uppercase text-center pt-16 xl:pt-24">
+          <h2 className="text-4xl xl:text-5xl leading-snug uppercase text-center">
             Jak przebiega współpraca?
           </h2>
           {/* items */}
@@ -69,7 +69,7 @@ export default function About() {
       </section>
       <section className="px-6 xl:px-32 xl:flex py-20 xl:py-24">
         <div className="xl:w-1/2">
-          <h2 className="text-4xl xl:text-5xl uppercase pb-12">
+          <h2 className="text-4xl xl:text-5xl uppercase mb-12">
             Widzę to tak{" "}
           </h2>
           <p>
@@ -86,7 +86,7 @@ export default function About() {
         </div>
         <div className="xl:w-1/2 mt-16 xl:mt-0">LOGA</div>
       </section>
-      <section className="bg-black px-6 xl:px-32 py-16 xl:py-32">
+      <section className="bg-black px-6 xl:px-32 py-20 xl:py-24">
         <div className="flex flex-col-reverse xl:flex-row gap-16">
           <div className="xl:w-1/2 text-white">
             <video

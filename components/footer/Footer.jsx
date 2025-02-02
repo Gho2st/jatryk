@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-6 xl:px-32 bg-blue-500 ">
-      <h2 className="uppercase text-3xl xl:text-5xl leading-snug py-10 xl:py-24 text-white xl:leading-snug">
+    <footer className="px-6 xl:px-32 py-20 xl:py-24 bg-blue-500 ">
+      <h2 className="uppercase text-3xl xl:text-5xl leading-snug  text-white xl:leading-snug">
         Masz pomysł? Zamieńmy go w rzeczywistość!
       </h2>
       <div className="xl:flex xl:flex-row-reverse xl:justify-between xl:mt-32">
@@ -32,7 +32,7 @@ export default function Footer() {
           />
         </div>
       </div>
-      <p className="py-12 text-center text-white ">
+      <p className="mt-24 text-center text-white ">
         @ 2024 Jatryk Projekt i realizacja{" "}
         <Link
           className="text-green-200 font-bold"

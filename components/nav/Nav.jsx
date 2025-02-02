@@ -20,21 +20,30 @@ export default function Nav() {
   return (
     <>
       <header>
-        <nav className="px-6 lg:px-20 xl:px-32 py-10 flex justify-between items-center">
+        <nav className="px-6 lg:px-20 xl:px-32 py-10 flex justify-between items-center bg-transparent">
           {/* Logo */}
           <div className="z-50 relative">
             <Link href={"/"} onClick={closeMenu}>
-              <Image
-                src={"/logo.png"}
-                width={150}
-                height={150}
-                alt="Logo grafika Jatryk"
-              />
+              <motion.div
+                whileHover={{ scale: 1.05 }} // Delikatne powiększenie
+                transition={{ duration: 0.3 }} // Krótkie, płynne przejście
+              >
+                <Image
+                  src={"/logo.png"}
+                  width={150}
+                  height={150}
+                  alt="Logo grafika Jatryk"
+                />
+              </motion.div>
             </Link>
           </div>
 
           {/* Hamburger Menu for Mobile phones */}
-          <div className="lg:hidden z-50 relative">
+          <div
+            className={`lg:hidden z-50 relative ${
+              menuOpen ? "text-black" : "text-white"
+            }`}
+          >
             <button
               onClick={toggleMenu}
               aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
@@ -48,16 +57,16 @@ export default function Nav() {
           {/* Desktop menu */}
           <div className="hidden lg:block xl:text-xl 2xl:text-2xl">
             <ul className="flex gap-10 ">
-              <li>
+              <li className="hover:text-[#EFB036] transition-colors duration-300">
                 <Link href={"/"}>Strona Główna</Link>
               </li>
-              <li>
+              <li className="hover:text-[#EFB036] transition-colors duration-300">
                 <Link href={"#portfolio"}>Portfolio</Link>
               </li>
-              <li>
+              <li className="hover:text-[#EFB036] transition-colors duration-300">
                 <Link href={"/kontakt"}>Kontakt</Link>
               </li>
-              <li>
+              <li className="hover:text-[#EFB036] transition-colors duration-300">
                 <Link href={"/o-mnie"}>O Mnie</Link>
               </li>
             </ul>
@@ -74,7 +83,7 @@ export default function Nav() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute top-0 left-0 w-full h-screen bg-white z-40"
             >
-              <ul className="flex flex-col items-center gap-8 mt-[12rem] text-2xl">
+              <ul className="flex flex-col items-center gap-8 mt-[12rem] text-2xl text-black">
                 <li>
                   <Link href={"/"} onClick={closeMenu}>
                     Strona Główna
