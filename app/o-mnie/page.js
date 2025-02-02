@@ -69,7 +69,9 @@ export default function About() {
       </section>
       <section className="px-6 xl:px-32 xl:flex py-20 xl:py-24">
         <div className="xl:w-1/2">
-          <h2 className="text-4xl xl:text-5xl uppercase pb-12">Widzę to tak </h2>
+          <h2 className="text-4xl xl:text-5xl uppercase pb-12">
+            Widzę to tak{" "}
+          </h2>
           <p>
             Nie mam swojego konkretnego stylu, tylko zawsze jestem elastyczny i
             dopasowuje styl do projektu, który zleca mi klient.
@@ -89,7 +91,8 @@ export default function About() {
           <div className="xl:w-1/2 text-white">
             <video
               controls
-              className="w-4/5 mx-auto xl:w-2/3 border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
+              playsInline
+              className="w-4/5 max-h-[400px] mx-auto xl:w-2/3 border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.
