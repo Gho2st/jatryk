@@ -6,20 +6,21 @@ export default function About() {
   return (
     <>
       <Nav />
-      <section className="px-6 xl:px-32 pb-20 xl:pb-24">
+      {/* hero */}
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-24">
         <div className="flex">
-          <div className="xl:w-1/2">
-            <h1 className="text-4xl xl:text-5xl mt-12 mb-12 font-bold">
+          <div className="md:w-1/2">
+            <h1 className="text-4xl xl:text-5xl mt-12 mb-12 font-semibold">
               Trochę więcej o sobie
             </h1>
-            <p className="text-xl">
+            <p className="text-lg">
               Nazywam się Patryk Jędrzejek, od ponad 5 lat zajmuję się
               projektowaniem komunikacji wizualnej, której zadaniem jest
               nawiązanie relacji pomiędzy marką a jej klientem. Dowiedz się, jak
               mogę Tobie pomóc w sukcesywnym budowaniu dobrej komunikacji
               wizualnej.
             </p>
-            <p className="text-xl my-10">
+            <p className="text-lg my-10">
               Do każdej współpracy z klientem podchodzę indywidualnie, co
               finalnie skutkuje unikalnym projektem logo, strony internetowej,
               czy innego projektu, który został mi zlecony.
@@ -29,13 +30,14 @@ export default function About() {
           <div></div>
         </div>
       </section>
-      <section className="px-6 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
+      {/* cooperate section */}
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
         <div>
           <h2 className="text-4xl xl:text-5xl leading-snug uppercase text-center">
             Jak przebiega współpraca?
           </h2>
           {/* items */}
-          <div className="grid xl:grid-cols-4 gap-10 mt-20 xl:mt-32">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-10 mt-20 xl:mt-32">
             <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
               <p className="text-5xl">1</p>
               <p className="mt-8">
@@ -67,7 +69,8 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="px-6 xl:px-32 xl:flex py-20 xl:py-24 bg-white text-black">
+      {/* loga */}
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 xl:flex py-20 xl:py-24 bg-white text-black">
         <div className="xl:w-1/2">
           <h2 className="text-4xl xl:text-5xl uppercase mb-12">
             Widzę to tak{" "}
@@ -86,19 +89,20 @@ export default function About() {
         </div>
         <div className="xl:w-1/2 mt-16 xl:mt-0">LOGA</div>
       </section>
-      <section className="px-6 xl:px-32 py-20 xl:py-24">
-        <div className="flex flex-col-reverse xl:flex-row gap-16">
-          <div className="xl:w-1/2 text-white">
+      {/* tiktok */}
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24">
+        <div className="flex flex-col-reverse md:flex-row gap-16">
+          <div className="w-1/2 text-white">
             <video
               controls
               playsInline
-              className="mx-auto xl:w-2/3 border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
+              className="mx-auto w-2/3  border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.
             </video>
           </div>
-          <div className="xl:w-1/2 text-white">
+          <div className="w-1/2 text-white">
             <h2 className="text-3xl xl:text-5xl pb-10 xl:pb-12 xl:leading-snug uppercase">
               Zaobserwuj mnie na Tiktoku!
             </h2>

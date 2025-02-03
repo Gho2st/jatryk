@@ -7,12 +7,12 @@ export default function PortfolioItem(props) {
   const link = "/portfolio/" + props.title;
   return (
     <div
-      className={` xl:mt-32 xl:px-32 xl:flex xl:gap-24 xl:justify-center ${
-        props.order % 2 === 0 ? "" : "xl:flex-row-reverse"
+      className={`mt-10 md:mt-24 xl:mt-32  md:flex md:gap-24 md:justify-center ${
+        props.order % 2 === 0 ? "" : "md:flex-row-reverse"
       }`}
     >
       {/* Image Section */}
-      <div className="xl:w-1/3 ">
+      <div className="md:w-1/3 ">
         <Image
           src={props.imageURL}
           width={100}
@@ -23,7 +23,7 @@ export default function PortfolioItem(props) {
       </div>
 
       {/* Text Section */}
-      <div className="px-6 xl:w-2/5">
+      <div className="md:w-2/5">
         <h3 className="text-3xl xl:text-4xl font-semibold mt-12 xl:mt-0">
           {props.title}
         </h3>

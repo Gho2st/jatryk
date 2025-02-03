@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 pb-16 xl:pb-44 pt-10 lg:px-20 xl:px-32 flex justify-between flex-col xl:flex-row  gap-10 ">
+    <section className="px-6 pb-16 xl:pb-44 pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 ">
       <div className="xl:w-1/2 text-center md:text-left">
         <motion.h1
           className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
@@ -52,7 +52,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         whileHover={{ scale: 1.05, y: -5 }} // Powiększenie i lekkie uniesienie
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="relative"
+        className="flex justify-center items-center relative"
       >
         <Image
           src={"/patryk2.png"}

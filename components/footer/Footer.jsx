@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-6 xl:px-32 py-20 xl:py-24 bg-blue-500 ">
+    <footer className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 bg-blue-500 ">
       <h2 className="uppercase text-3xl xl:text-5xl leading-snug  text-white xl:leading-snug">
         Masz pomysł? Zamieńmy go w rzeczywistość!
       </h2>
-      <div className="xl:flex xl:flex-row-reverse xl:justify-between xl:mt-32">
-        <div className="flex flex-col xl:flex-row xl:items-center gap-6 mb-10 xl:my-0 py-16 xl:py-0 text-xl text-white">
+      <div className="md:flex md:flex-row-reverse md:justify-between md:mt-32">
+        <div className="flex flex-col md:flex-row md:items-center gap-6 mb-10 md:my-0 py-16 md:py-0 text-xl text-white">
           <Link className="mx-auto" href="/">
             Strona Główna
           </Link>
@@ -22,7 +22,7 @@ export default function Footer() {
             O Mnie
           </Link>
         </div>
-        <div className="px-6 xl:w-1/3">
+        <div className="px-6 md:w-1/3">
           <Image
             src="/logo.png"
             width={100}
