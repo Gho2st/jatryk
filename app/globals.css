@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
+/* important to work nav */
 body {
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }

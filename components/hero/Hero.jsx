@@ -27,7 +27,7 @@ export default function Hero() {
     <section className="px-6 pb-16 xl:pb-44 pt-10 lg:px-20 xl:px-32 flex justify-between flex-col xl:flex-row  gap-10 ">
       <div className="xl:w-1/2 text-center md:text-left">
         <motion.h1
-          className="text-4xl xl:text-5xl 2xl:text-6xl  font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
+          className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

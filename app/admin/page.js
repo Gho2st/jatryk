@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import Nav from "@/components/nav/Nav";
 
 export default function AdminPanel() {
   const [user, setUser] = useState(null);
@@ -231,125 +232,132 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 text-black" >
-      <h1 className="text-3xl font-semibold text-center mb-6 text-white">
-        Panel administracyjny
-      </h1>
+    <>
+      <Nav />
+      <div className="max-w-4xl mx-auto p-6 text-black">
+        <h1 className="text-3xl font-semibold text-center mb-6 text-white">
+          Panel administracyjny
+        </h1>
 
-      <div className=" shadow-lg p-6 rounded-lg mb-6">
-        <h2 className="text-2xl font-semibold mb-4 text-white">
-          {isEditing ? "Edytuj projekt" : "Dodaj nowy projekt"}
-        </h2>
+        <div className=" shadow-lg p-6 rounded-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-white">
+            {isEditing ? "Edytuj projekt" : "Dodaj nowy projekt"}
+          </h2>
 
-        {error && <div className="text-red-600 mb-4">{error}</div>}
+          {error && <div className="text-red-600 mb-4">{error}</div>}
 
-        <input
-          type="text"
-          placeholder="Tytuł projektu"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
+          <input
+            type="text"
+            placeholder="Tytuł projektu"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
 
-        <textarea
-          placeholder="Opis projektu"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
+          <textarea
+            placeholder="Opis projektu"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
 
-        <textarea
-          placeholder="Długi opis projektu"
-          value={longDescription}
-          onChange={(e) => setLongDescription(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
+          <textarea
+            placeholder="Długi opis projektu"
+            value={longDescription}
+            onChange={(e) => setLongDescription(e.target.value)}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
 
-        <input
-          type="file"
-          onChange={(e) => handleImageUpload(e.target.files[0])}
-          className="mb-4 text-white"
-        />
+          <input
+            type="file"
+            onChange={(e) => handleImageUpload(e.target.files[0])}
+            className="mb-4 text-white"
+          />
 
-        {imageURL && (
-          <img src={imageURL} alt="Podgląd" width={100} className="mb-4" />
-        )}
+          {imageURL && (
+            <img src={imageURL} alt="Podgląd" width={100} className="mb-4" />
+          )}
 
-        <input
-          type="file"
-          multiple
-          onChange={handleAdditionalImageUpload}
-          className="mb-4 text-white"
-        />
+          <input
+            type="file"
+            multiple
+            onChange={handleAdditionalImageUpload}
+            className="mb-4 text-white"
+          />
 
-        {additionalImages.length > 0 && (
-          <div>
-            <h3 className="text-xl text-white">Dodatkowe zdjęcia:</h3>
-            <div className="flex flex-wrap gap-4">
-              {additionalImages.map((url, index) => (
-                <img
-                  key={index}
-                  src={url}
-                  alt={`Dodatkowe zdjęcie ${index + 1}`}
-                  width={100}
-                  className="mb-4"
-                />
-              ))}
+          {additionalImages.length > 0 && (
+            <div>
+              <h3 className="text-xl text-white">Dodatkowe zdjęcia:</h3>
+              <div className="flex flex-wrap gap-4">
+                {additionalImages.map((url, index) => (
+                  <img
+                    key={index}
+                    src={url}
+                    alt={`Dodatkowe zdjęcie ${index + 1}`}
+                    width={100}
+                    className="mb-4"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <button
-          onClick={handleSaveProject}
-          disabled={
-            !imageURL || !title || !description || additionalImages.length === 0
-          }
-          className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
-        >
-          {isEditing ? "Zapisz zmiany" : "Dodaj projekt"}
-        </button>
+          <button
+            onClick={handleSaveProject}
+            disabled={
+              !imageURL ||
+              !title ||
+              !description ||
+              additionalImages.length === 0
+            }
+            className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            {isEditing ? "Zapisz zmiany" : "Dodaj projekt"}
+          </button>
+        </div>
+
+        <h2 className="text-2xl font-semibold mb-4 text-white">Projekty</h2>
+        <ul className="space-y-4">
+          {projects.map((project) => (
+            <li key={project.id} className="bg-white shadow-lg p-4 rounded-lg">
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <p>{project.description}</p>
+                  <p>Obecna pozycja: {project.order}</p>{" "}
+                  {/* Logowanie orderu */}
+                </div>
+                <div className="flex space-x-4">
+                  <button
+                    onClick={() => handleReorder(project.id, -1)} // Przesuwanie w górę
+                    className="text-green-600 hover:underline"
+                  >
+                    ↑
+                  </button>
+                  <button
+                    onClick={() => handleReorder(project.id, 1)} // Przesuwanie w dół
+                    className="text-green-600 hover:underline"
+                  >
+                    ↓
+                  </button>
+                  <button
+                    onClick={() => handleEditProject(project)}
+                    className="text-blue-600 hover:underline"
+                  >
+                    Edytuj
+                  </button>
+                  <button
+                    onClick={() => handleDeleteProject(project.id)}
+                    className="text-red-600 hover:underline"
+                  >
+                    Usuń
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <h2 className="text-2xl font-semibold mb-4 text-white">Projekty</h2>
-      <ul className="space-y-4">
-        {projects.map((project) => (
-          <li key={project.id} className="bg-white shadow-lg p-4 rounded-lg">
-            <div className="flex justify-between">
-              <div>
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p>{project.description}</p>
-                <p>Obecna pozycja: {project.order}</p> {/* Logowanie orderu */}
-              </div>
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => handleReorder(project.id, -1)} // Przesuwanie w górę
-                  className="text-green-600 hover:underline"
-                >
-                  ↑
-                </button>
-                <button
-                  onClick={() => handleReorder(project.id, 1)} // Przesuwanie w dół
-                  className="text-green-600 hover:underline"
-                >
-                  ↓
-                </button>
-                <button
-                  onClick={() => handleEditProject(project)}
-                  className="text-blue-600 hover:underline"
-                >
-                  Edytuj
-                </button>
-                <button
-                  onClick={() => handleDeleteProject(project.id)}
-                  className="text-red-600 hover:underline"
-                >
-                  Usuń
-                </button>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+    </>
   );
 }
