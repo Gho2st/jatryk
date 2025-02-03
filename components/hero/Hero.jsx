@@ -48,13 +48,14 @@ export default function Hero() {
         </div>
       </div>
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, rotate: -20 }}
+        initial={{ opacity: 0, scale: 0.9, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        whileHover={{ scale: 1.05, y: -5 }} // Powiększenie i lekkie uniesienie
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="relative"
       >
         <Image
-          src={"/patryk.png"}
+          src={"/patryk2.png"}
           width={400}
           height={400}
           layout="intrinsic"

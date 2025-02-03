@@ -203,7 +203,7 @@ export default function AdminPanel() {
   // Jeśli użytkownik nie jest zalogowany, pokaż formularz logowania
   if (!user) {
     return (
-      <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg mt-20">
+      <div className="max-w-md mx-auto p-6  shadow-md rounded-lg mt-20">
         <h2 className="text-2xl font-semibold text-center mb-4">Logowanie</h2>
         {error && <p className="text-red-600">{error}</p>}
         <input
@@ -222,7 +222,7 @@ export default function AdminPanel() {
         />
         <button
           onClick={handleLogin}
-          className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="w-full p-3 bg-blue-600  rounded-md hover:bg-blue-700"
         >
           Zaloguj się
         </button>
@@ -231,13 +231,13 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-semibold text-center mb-6">
+    <div className="max-w-4xl mx-auto p-6 text-black" >
+      <h1 className="text-3xl font-semibold text-center mb-6 text-white">
         Panel administracyjny
       </h1>
 
-      <div className="bg-white shadow-lg p-6 rounded-lg mb-6">
-        <h2 className="text-2xl font-semibold mb-4">
+      <div className=" shadow-lg p-6 rounded-lg mb-6">
+        <h2 className="text-2xl font-semibold mb-4 text-white">
           {isEditing ? "Edytuj projekt" : "Dodaj nowy projekt"}
         </h2>
 
@@ -268,7 +268,7 @@ export default function AdminPanel() {
         <input
           type="file"
           onChange={(e) => handleImageUpload(e.target.files[0])}
-          className="mb-4"
+          className="mb-4 text-white"
         />
 
         {imageURL && (
@@ -279,12 +279,12 @@ export default function AdminPanel() {
           type="file"
           multiple
           onChange={handleAdditionalImageUpload}
-          className="mb-4"
+          className="mb-4 text-white"
         />
 
         {additionalImages.length > 0 && (
           <div>
-            <h3 className="text-xl">Dodatkowe zdjęcia:</h3>
+            <h3 className="text-xl text-white">Dodatkowe zdjęcia:</h3>
             <div className="flex flex-wrap gap-4">
               {additionalImages.map((url, index) => (
                 <img
@@ -310,7 +310,7 @@ export default function AdminPanel() {
         </button>
       </div>
 
-      <h2 className="text-2xl font-semibold mb-4">Projekty</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-white">Projekty</h2>
       <ul className="space-y-4">
         {projects.map((project) => (
           <li key={project.id} className="bg-white shadow-lg p-4 rounded-lg">

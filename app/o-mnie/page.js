@@ -67,7 +67,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="px-6 xl:px-32 xl:flex py-20 xl:py-24">
+      <section className="px-6 xl:px-32 xl:flex py-20 xl:py-24 bg-white text-black">
         <div className="xl:w-1/2">
           <h2 className="text-4xl xl:text-5xl uppercase mb-12">
             Widzę to tak{" "}
@@ -86,7 +86,7 @@ export default function About() {
         </div>
         <div className="xl:w-1/2 mt-16 xl:mt-0">LOGA</div>
       </section>
-      <section className="bg-black px-6 xl:px-32 py-20 xl:py-24">
+      <section className="px-6 xl:px-32 py-20 xl:py-24">
         <div className="flex flex-col-reverse xl:flex-row gap-16">
           <div className="xl:w-1/2 text-white">
             <video

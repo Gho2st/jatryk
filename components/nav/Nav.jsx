@@ -29,10 +29,11 @@ export default function Nav() {
                 transition={{ duration: 0.3 }} // Krótkie, płynne przejście
               >
                 <Image
-                  src={"/logo.png"}
+                  src={"/logo2.png"}
                   width={150}
                   height={150}
                   alt="Logo grafika Jatryk"
+                  className={`${!menuOpen && "invert"}`}
                 />
               </motion.div>
             </Link>
