@@ -71,14 +71,14 @@ export default function ProjectPage({ params }) {
   return (
     <>
       <Nav />
-      <div className="px-6 md:px-16 lg:px-20 xl:px-32 xl:py-24">
-        <div className="flex flex-col xl:flex-row justify-between">
-          <div className="xl:w-3/5">
-            <h1 className="text-4xl xl:text-5xl">{project.title}</h1>
+      <div className="px-6 md:px-16 lg:px-20 xl:px-32 md:py-20 xl:py-24">
+        <div className="flex flex-col lg:flex-row lg:gap-24 justify-between">
+          <div className="lg:w-3/5">
+            <h1 className="text-4xl md:text-5xl">{project.title}</h1>
             <p className="my-10">{project.description}</p>
             <p className="">{project.longDescription}</p>
           </div>
-          <div className="xl:w-1/4 mt-16 xl:mt-0">
+          <div className="lg:w-1/3 mt-16 lg:mt-0 flex justify-center items-center">
             {project.imageURL && (
               <Image
                 src={project.imageURL}
@@ -92,7 +92,7 @@ export default function ProjectPage({ params }) {
         </div>
 
         {project.additionalImages.length > 0 && (
-          <div className="flex flex-col xl:flex-row gap-8 mt-16 xl:mt-44 pb-20">
+          <div className="flex flex-col md:flex-row gap-8 mt-16 lg:mt-24 xl:mt-44 pb-20 md:pb-0">
             {project.additionalImages.map((image, index) => (
               <div className="xl:w-1/3">
                 <Image

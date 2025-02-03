@@ -9,7 +9,7 @@ export default function About() {
       {/* hero */}
       <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-24">
         <div className="flex">
-          <div className="md:w-1/2">
+          <div className="md:w-2/3 xl:w-1/2">
             <h1 className="text-4xl xl:text-5xl mt-12 mb-12 font-semibold">
               Trochę więcej o sobie
             </h1>
@@ -92,17 +92,17 @@ export default function About() {
       {/* tiktok */}
       <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24">
         <div className="flex flex-col-reverse md:flex-row gap-16">
-          <div className="w-1/2 text-white">
+          <div className="md:w-1/2 text-white flex justify-center items-center">
             <video
               controls
               playsInline
-              className="mx-auto w-2/3  border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
+              className="mx-auto md:w-4/5 xl:w-2/3  border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.
             </video>
           </div>
-          <div className="w-1/2 text-white">
+          <div className="md:w-1/2 text-white">
             <h2 className="text-3xl xl:text-5xl pb-10 xl:pb-12 xl:leading-snug uppercase">
               Zaobserwuj mnie na Tiktoku!
             </h2>
