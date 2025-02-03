@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 pb-16 md:pb-24 xl:pb-44 2xl:min-h-[100vh] pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 ">
+    <section className="px-6 pb-16 md:pb-24 xl:pb-44 2xl:min-h-[100vh] pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 2xl:pb-96 2xl:pt-32 ">
       <div className="xl:w-1/2 text-center md:text-left">
         <motion.h1
           className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
