@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 pb-16 md:pb-24 xl:pb-44 pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 ">
+    <section className="px-6 pb-16 md:pb-24 xl:pb-44 2xl:min-h-[100vh] pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 ">
       <div className="xl:w-1/2 text-center md:text-left">
         <motion.h1
           className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
@@ -35,7 +35,7 @@ export default function Hero() {
           {displayText}
         </motion.h1>
         <motion.p
-          className="mt-10 mb-10 xl:mb-14 2xl:mb-16 text-xl 2xl:text-4xl lg:w-1/2 xl:w-full text-gray-300"
+          className="mt-10 mb-10 xl:mb-14 2xl:mb-16 text-xl 2xl:text-2xl lg:w-1/2 xl:w-full text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
