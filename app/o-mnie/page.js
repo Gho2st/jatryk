@@ -2,6 +2,7 @@ import Nav from "@/components/nav/Nav";
 import Footer from "@/components/footer/Footer";
 import Button from "@/components/buttons/Button";
 import AboutHero from "./AboutHero";
+import Image from "next/image";
 
 export const metadata = {
   title: "O mnie – Jatryk | Patryk Jędrzejek",
@@ -58,11 +59,9 @@ export default function About() {
         </div>
       </section>
       {/* loga */}
-      <section className="px-6 md:px-16 lg:px-20 xl:px-32 xl:flex py-20 xl:py-24 bg-white text-black">
-        <div className="xl:w-1/2">
-          <h2 className="text-4xl xl:text-5xl uppercase mb-12">
-            Widzę to tak{" "}
-          </h2>
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 flex flex-col md:flex-row gap-20 md:gap-24 py-20 xl:py-24 bg-white text-black">
+        <div className="md:w-2/3 xl:w-1/2">
+          <h2 className="text-4xl xl:text-5xl uppercase mb-12">Widzę to tak</h2>
           <p>
             Nie mam swojego konkretnego stylu, tylko zawsze jestem elastyczny i
             dopasowuje styl do projektu, który zleca mi klient.
@@ -75,7 +74,40 @@ export default function About() {
             mi klient.
           </p>
         </div>
-        <div className="xl:w-1/2 mt-16 xl:mt-0">LOGA</div>
+        <div className="w-11/12 mx-auto md:w-1/2 xl:mt-0 grid grid-cols-2 gap-8">
+          <div className="flex items-center justify-center">
+            <Image
+              src="/logo3.png"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+              src="/logo3.png"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+              src="/logo3.png"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+              src="/logo3.png"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+        </div>
       </section>
       {/* tiktok */}
       <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24">
