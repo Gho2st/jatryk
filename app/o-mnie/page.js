@@ -1,6 +1,7 @@
 import Nav from "@/components/nav/Nav";
 import Footer from "@/components/footer/Footer";
 import Button from "@/components/buttons/Button";
+import AboutHero from "./AboutHero";
 
 export const metadata = {
   title: "O mnie – Jatryk | Patryk Jędrzejek",
@@ -16,30 +17,7 @@ export default function About() {
   return (
     <>
       <Nav />
-      {/* hero */}
-      <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-24">
-        <div className="flex">
-          <div className="md:w-2/3 xl:w-1/2">
-            <h1 className="text-4xl xl:text-5xl mt-12 mb-12 font-semibold">
-              Trochę więcej o sobie
-            </h1>
-            <p className="text-lg">
-              Nazywam się Patryk Jędrzejek, od ponad 5 lat zajmuję się
-              projektowaniem komunikacji wizualnej, której zadaniem jest
-              nawiązanie relacji pomiędzy marką a jej klientem. Dowiedz się, jak
-              mogę Tobie pomóc w sukcesywnym budowaniu dobrej komunikacji
-              wizualnej.
-            </p>
-            <p className="text-lg my-10">
-              Do każdej współpracy z klientem podchodzę indywidualnie, co
-              finalnie skutkuje unikalnym projektem logo, strony internetowej,
-              czy innego projektu, który został mi zlecony.
-            </p>
-            <Button text="Zróbmy to razem!" link="/kontakt" />
-          </div>
-          <div></div>
-        </div>
-      </section>
+      <AboutHero />
       {/* cooperate section */}
       <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
         <div>
