@@ -35,7 +35,7 @@ export default function Hero() {
           {displayText}
         </motion.h1>
         <motion.p
-          className="mt-10 mb-10 xl:mb-14 2xl:mb-16 text-2xl 2xl:text-4xl lg:w-1/2 xl:w-full text-gray-300"
+          className="mt-10 mb-10 xl:mb-14 2xl:mb-16 text-xl 2xl:text-4xl lg:w-1/2 xl:w-full text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
