@@ -2,6 +2,16 @@ import Nav from "@/components/nav/Nav";
 import Footer from "@/components/footer/Footer";
 import Button from "@/components/buttons/Button";
 
+export const metadata = {
+  title: "O mnie – Jatryk | Patryk Jędrzejek",
+  alternates: {
+    canonical: "/o-mnie",
+  },
+
+  description:
+    "Jestem Patryk Jędrzejek – pasjonat grafiki i projektowania wizualnego. Tworzę unikalne logo, identyfikację wizualną i branding, pomagając markom wyróżnić się na rynku.",
+};
+
 export default function About() {
   return (
     <>

@@ -7,9 +7,24 @@ const font = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Jatryk – Profesjonalny Grafik | Patryk Jędrzejek",
+  title: "Jatryk - Profesjonalny Grafik | Patryk Jędrzejek",
   description:
-    "Jatryk – kreatywny grafik specjalizujący się w projektowaniu logo, identyfikacji wizualnej i brandingiem. Pomagam markom wyróżnić się na rynku poprzez unikalne i estetyczne projekty graficzne.",
+    "Jatryk - kreatywny grafik specjalizujący się w projektowaniu logo, identyfikacji wizualnej i brandingiem. Pomagam markom wyróżnić się na rynku poprzez unikalne i estetyczne projekty graficzne.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.jatrykdesigner.pl/",
+    title: "Jatryk – Profesjonalny Grafik | Patryk Jędrzejek",
+    description:
+      "Jatryk - kreatywny grafik specjalizujący się w projektowaniu logo, identyfikacji wizualnej i brandingiem. Pomagam markom wyróżnić się na rynku poprzez unikalne i estetyczne projekty graficzne.",
+    images: "/opengraph-image.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

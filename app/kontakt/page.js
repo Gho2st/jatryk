@@ -6,6 +6,16 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
+export const metadata = {
+  title: "Skontaktuj się – Jatryk | Patryk Jędrzejek",
+  alternates: {
+    canonical: "/kontakt",
+  },
+
+  description:
+    "Masz pytania lub potrzebujesz profesjonalnego projektu graficznego? Skontaktuj się ze mną! Chętnie pomogę w stworzeniu unikalnej identyfikacji wizualnej dla Twojej marki.",
+};
+
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
