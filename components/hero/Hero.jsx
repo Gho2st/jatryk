@@ -52,7 +52,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         whileHover={{ scale: 1.05, y: -5 }} // Powiększenie i lekkie uniesienie
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex justify-center items-center relative"
+        className="flex justify-center items-center relative mx-auto w-2/3 md:w-1/2"
       >
         <Image
           src={"/patryk2.png"}
