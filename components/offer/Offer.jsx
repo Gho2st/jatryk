@@ -26,15 +26,15 @@ export default function Offer() {
 
       <div className="relative grid grid-cols-2 xl:grid-cols-3 gap-16 mt-24 xl:mt-32 2xl:mt-44">
         <div>
-          <PiCodaLogoBold className="text-7xl mx-auto" />
+          <PiCodaLogoBold className="text-6xl md:text-7xl mx-auto" />
           <p className="text-center mt-8 xl:text-xl">Logo Design</p>
         </div>
         <div>
-          <MdNaturePeople className="text-7xl mx-auto" />
+          <MdNaturePeople className="text-6xl md:text-7xl mx-auto" />
           <p className="text-center mt-8 xl:text-xl">Identyfikacja Marki</p>
         </div>
         <div>
-          <FaPencilAlt className="text-7xl mx-auto" />
+          <FaPencilAlt className="text-6xl md:text-7xl mx-auto" />
           <p className="text-center mt-8 xl:text-xl">Nazwa Firmy</p>
         </div>
       </div>
