@@ -6,7 +6,7 @@ import { HiMiniSparkles } from "react-icons/hi2";
 import Image from "next/image";
 
 export default function Hero() {
-  const text = "Hej! Jestem Patryk";
+  const text = "Cześć! Jestem Patryk";
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
@@ -26,8 +26,9 @@ export default function Hero() {
   return (
     <section className="px-6 pb-16 md:pb-24 xl:pb-44 2xl:min-h-[100vh] pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 2xl:pb-96 2xl:pt-32 ">
       <div className="xl:w-1/2 text-center md:text-left">
+        <p className="mb-6 uppercase font-bold text-xl">Brand Designer</p>
         <motion.h1
-          className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent"
+          className="text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug text-[#4A4AFF]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -35,7 +36,7 @@ export default function Hero() {
           {displayText}
         </motion.h1>
         <motion.p
-          className="mt-10 mb-10 xl:mb-14 2xl:mb-16 text-xl 2xl:text-2xl lg:w-1/2 xl:w-full text-gray-300"
+          className="mt-10 mb-10 xl:mb-14 2xl:mb-24 text-xl 2xl:text-2xl lg:w-1/2 xl:w-full text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -52,14 +53,14 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         whileHover={{ scale: 1.05, y: -5 }} // Powiększenie i lekkie uniesienie
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex justify-center items-center relative mx-auto w-2/3 md:w-1/2"
+        className="flex justify-center items-center relative mx-auto w-2/3 md:w-1/2 2xl:w-1/3"
       >
         <Image
-          src={"/patryk2.png"}
-          width={400}
-          height={400}
-          layout="intrinsic"
-          className="rounded-full shadow-lg shadow-yellow-500/30 border-4 border-gray-700"
+          src={"/patryk.jpg"}
+          width={100}
+          height={100}
+          layout="responsive"
+          className="rounded-3xl shadow-lg"
           alt="Patryk Jędrzejek"
         />
       </motion.div>
