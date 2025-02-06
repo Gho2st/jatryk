@@ -28,7 +28,7 @@ export default function PortfolioItem(props) {
           {props.title}
         </h3>
         <p className="my-6">{props.description}</p>
-        <div className="flex gap-2 items-center hover:text-[#4A4AFF] transition-all ease-linear">
+        <div className="inline-flex gap-2 items-center hover:text-[#4A4AFF] transition-all ease-linear">
           <Link href={link}>Zobacz więcej</Link>
           <FaArrowRightToBracket />
         </div>
