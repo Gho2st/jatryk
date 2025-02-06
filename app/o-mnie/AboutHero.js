@@ -6,7 +6,7 @@ import Button from "@/components/buttons/Button";
 export default function AboutHero() {
   return (
     <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-44 2xl:pb-96 2xl:pt-32">
-      <div className="flex flex-col md:flex-row gap-16 justify-between md:gap-24">
+      <div className="flex flex-col md:flex-row gap-20 justify-between md:gap-24">
         <div className="md:w-2/3 xl:w-1/2">
           <h1 className="text-4xl leading-snug xl:text-5xl xl:leading-snug mt-10 mb-10 2xl:mt-0 font-semibold text-[#4A4AFF]">
             Trochę więcej o sobie
