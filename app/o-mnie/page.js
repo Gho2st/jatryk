@@ -26,21 +26,21 @@ export default function About() {
         <div className="md:w-2/3 xl:w-1/2">
           <h2 className="text-4xl xl:text-5xl uppercase mb-12">Widzę to tak</h2>
           <p>
-            Nie mam swojego konkretnego stylu, tylko zawsze jestem elastyczny i
-            dopasowuje styl do projektu, który zleca mi klient.
+            Mam ponad 5 lat doświadczenia w projektowaniu dla różnych branż – od
+            IT, przez suplementy, aż po rolnictwo. Zamiast trzymać się jednego,
+            określonego stylu, zawsze dopasowuję swoją estetykę do specyfiki
+            danego projektu i oczekiwań klienta, co pozwala mi tworzyć spójne i
+            skuteczne rozwiązania wizualne
           </p>
           <p className="mt-10">
-            To dołożę do tego ponad 5 letnie doświadczenie oraz fakt, że
-            projektowałem dla wielu różnych branży, począwszy od IT, poprzez
-            suplementy aż po rolniczą! Nie mam swojego konkretnego stylu, tylko
-            zawsze jestem elastyczny i dopasowuje styl do projektu, który zleca
-            mi klient.
+            Dzięki temu moje projekty są różnorodne, unikalne i idealnie wpisują
+            się w potrzeby każdej branży.
           </p>
         </div>
         <div className="w-11/12 mx-auto md:w-1/2 xl:mt-0 grid grid-cols-2 gap-8">
           <div className="flex items-center justify-center">
             <Image
-              src="/logo3.png"
+              src="/loga/Wavekomunikacja.jpg"
               width={100}
               height={100}
               layout="responsive"
@@ -49,7 +49,7 @@ export default function About() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/logo3.png"
+              src="/loga/familnet.jpg"
               width={100}
               height={100}
               layout="responsive"
@@ -58,7 +58,7 @@ export default function About() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/logo3.png"
+              src="/loga/nexona.png"
               width={100}
               height={100}
               layout="responsive"
@@ -67,7 +67,7 @@ export default function About() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/logo3.png"
+              src="/loga/ravex.png"
               width={100}
               height={100}
               layout="responsive"
@@ -91,18 +91,19 @@ export default function About() {
           </div>
           <div className="md:w-1/2 text-white">
             <h2 className="text-3xl xl:text-5xl pb-10 xl:pb-12 xl:leading-snug uppercase">
-              Zaobserwuj mnie na Tiktoku!
+              Śledź mnie na TikToku! 🎥
             </h2>
             <p>
-              Aktywnie prowadzę profil na TikToku, gdzie publikuje kontent
-              skierowany do innych projektantów. Ten portal pozwala mi pokazywać
-              realizacje w ciekawy sposób, budząc we mnie duszę młodego
-              reżysera.
+              Aktywnie prowadzę profil, gdzie tworzę treści dla innych
+              projektantów, dzieląc się wiedzą i realizacjami w kreatywny
+              sposób. TikTok to dla mnie nie tylko przestrzeń do prezentowania
+              projektów, ale też okazja, by odkryć w sobie duszę reżysera.
             </p>
             <p className="mt-10 mb-10">
-              Swoje początki w wideo stawiałem natomiast na innej platformie,
-              tej bardziej znanej. Chodzi mianowicie o YouTube'a. Kanał na ten
-              moment zebrał niespełna 35k wyświetleń.
+              Poza TikTokiem swoją wiedzę i doświadczenie chętnie dzielę także
+              na innych platformach, gdzie pokazuję kulisy pracy, inspiracje i
+              przydatne wskazówki dla projektantów. Sprawdź i daj znać, co
+              sądzisz! 🚀
             </p>
             <Button
               text="Zaobserwuj!"

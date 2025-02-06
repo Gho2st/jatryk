@@ -8,7 +8,7 @@ export default function Reviews() {
       <div className="grid md:grid-cols-2 gap-8 2xl:gap-16 text-black">
         <ReviewItem
           name="Anna Kaszuba"
-          text="Współpraca z [Imię Grafika] to czysta przyjemność. Stworzył dla mnie logo, które idealnie oddaje charakter mojej marki. Zdecydowanie polecam!"
+          text="Współpraca z Patrykiem to czysta przyjemność. Stworzył dla mnie logo, które idealnie oddaje charakter mojej marki. Zdecydowanie polecam!"
         />
         <ReviewItem
           name="Tomasz Wąsik"

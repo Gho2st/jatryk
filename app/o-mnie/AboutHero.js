@@ -23,16 +23,15 @@ export default function AboutHero() {
           </h1>
           <div className="2xl:text-2xl">
             <p>
-              Nazywam się Patryk Jędrzejek, od ponad 5 lat zajmuję się
-              projektowaniem komunikacji wizualnej, której zadaniem jest
-              nawiązanie relacji pomiędzy marką a jej klientem. Dowiedz się, jak
-              mogę Tobie pomóc w sukcesywnym budowaniu dobrej komunikacji
-              wizualnej.
+              Patryk Jędrzejek – ekspert w kreowaniu wyróżniających się marek!
+              Jako absolwent 5-letniej szkoły graficznej łączę kreatywność z
+              precyzją, tworząc spójne i efektowne identyfikacje wizualne.
+              Specjalizuję się w budowaniu unikalnych wizerunków firm, pomagając
+              markom przyciągać uwagę i skutecznie komunikować się z odbiorcami.
             </p>
             <p className="my-10 2xl:mb-16">
-              Do każdej współpracy z klientem podchodzę indywidualnie, co
-              finalnie skutkuje unikalnym projektem logo, strony internetowej,
-              czy innego projektu, który został mi zlecony.
+              Jeśli szukasz profesjonalnego podejścia do designu, które
+              podkreśli charakter Twojego biznesu – dobrze trafiłeś!
             </p>
           </div>
           <Button text="Zróbmy to razem!" link="/kontakt" />

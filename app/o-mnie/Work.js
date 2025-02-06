@@ -23,29 +23,29 @@ export default function Work() {
           <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
             <p className="text-5xl">1</p>
             <p className="mt-8">
-              Umówimy się na spotkanie, na którym wspólnie uzupełnimy brief
-              zawierający kluczowe informacje o marce.
+              Spotkanie i brief – Umawiamy się na rozmowę, podczas której
+              wspólnie wypełniamy brief, określając kluczowe informacje o marce.
             </p>
           </div>
           <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
             <p className="text-5xl">2</p>
             <p className="mt-8">
-              Następnie przejdę do zaprojektowania moodboardu, który pomoże nam
-              określić kierunek wizualny.
+              Moodboard i kierunek wizualny – Tworzę moodboard, który pomoże
+              ustalić spójną estetykę i kierunek projektu.
             </p>
           </div>
           <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
             <p className="text-5xl">3</p>
             <p className="mt-8">
-              Po akceptacji propozycji estetyki. Przechodzę do stworzenia
-              docelowego projektu logo / identyfikacji / strony www.
+              Po akceptacji stylu przechodzę do właściwego etapu – projektuję
+              logo, identyfikację wizualną lub stronę internetową.
             </p>
           </div>
           <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
             <p className="text-5xl">4</p>
             <p className="mt-8">
-              W momencie gdy padnie akceptacja, przechodzę do finalizacji
-              współpracy. Przekazuje pliki oraz prawa do projektu.
+              Po ostatecznej akceptacji przekazuję gotowe pliki oraz pełne prawa
+              do projektu.
             </p>
           </div>
         </div>
