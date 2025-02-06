@@ -12,11 +12,11 @@ export default function Offer() {
   const ballY = useTransform(scrollY, [200, 1000], ["0%", "20%"]);
 
   return (
-    <section className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden md:overflow-visible">
+    <section className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden  md:overflow-visible">
       {/* Gradientowa kula */}
       <motion.div
         style={{ x: ballX, y: ballY, willChange: "transform" }}
-        className="absolute top-0 left-0 w-[700px] h-[700px] bg-gradient-to-br from-[#4A4AFF] to-[#4A4AFF] rounded-full blur-[120px] opacity-40"
+        className="absolute top-0 left-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-gradient-to-br from-[#4A4AFF] to-[#4A4AFF] rounded-full blur-[120px] opacity-40"
       />
       <div className="relative text-white flex justify-center">
         <h2 className="px-10 rounded-xl text-center text-5xl 2xl:text-6xl font-semibold">

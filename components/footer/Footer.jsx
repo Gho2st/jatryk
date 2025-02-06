@@ -35,7 +35,7 @@ export default function Footer() {
       <p className="mt-24 text-center text-white ">
         @ 2024 Jatryk Projekt i realizacja{" "}
         <Link
-          className="text-green-200 font-bold"
+          className="text-[#4A4AFF] font-bold"
           href="https://www.domiweb.pl/"
         >
           Domiweb
