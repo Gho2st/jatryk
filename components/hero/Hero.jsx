@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-6 pb-16 md:pb-24 xl:pb-44 2xl:min-h-[100vh] pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row  gap-10 2xl:pb-96 2xl:pt-32 ">
+    <section className="px-6 pb-16 md:pb-24 xl:pb-44 xl:pt-20 pt-10 md:px-16 lg:px-20 xl:px-32 flex justify-between flex-col md:flex-row gap-10 xl:gap-20 2xl:pb-62 2xl:pt-32 ">
       <div className="xl:w-1/2 text-center md:text-left">
         <p className="mb-6 uppercase font-bold text-xl">Brand Designer</p>
         <motion.h1
@@ -53,7 +53,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         whileHover={{ scale: 1.05, y: -5 }} // Powiększenie i lekkie uniesienie
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex justify-center items-center relative mx-auto w-2/3 md:w-1/2 2xl:w-1/3"
+        className="flex items-start justify-center relative mx-auto w-2/3 md:w-1/3 2xl:w-1/3"
       >
         <Image
           src={"/patryk.jpg"}

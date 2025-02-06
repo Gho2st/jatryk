@@ -44,7 +44,7 @@ export default function Nav() {
                   width={150}
                   height={150}
                   alt="Logo grafika Jatryk"
-                  className={`${!menuOpen && "invert"}`}
+                  className="invert"
                 />
               </motion.div>
             </Link>
@@ -60,7 +60,7 @@ export default function Nav() {
               onClick={toggleMenu}
               aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
               aria-expanded={menuOpen}
-              className="text-3xl"
+              className="text-3xl text-white"
             >
               {menuOpen ? <RxCross1 /> : <RxHamburgerMenu />}
             </button>
@@ -69,16 +69,16 @@ export default function Nav() {
           {/* Desktop menu */}
           <div className="hidden lg:block xl:text-xl 2xl:text-2xl">
             <ul className="flex gap-10 ">
-              <li className="hover:text-[#EFB036] transition-colors duration-300">
+              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
                 <Link href={"/"}>Strona Główna</Link>
               </li>
-              <li className="hover:text-[#EFB036] transition-colors duration-300">
-                <Link href={"#portfolio"}>Portfolio</Link>
+              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
+                <Link href={"/#portfolio"}>Portfolio</Link>
               </li>
-              <li className="hover:text-[#EFB036] transition-colors duration-300">
+              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
                 <Link href={"/kontakt"}>Kontakt</Link>
               </li>
-              <li className="hover:text-[#EFB036] transition-colors duration-300">
+              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
                 <Link href={"/o-mnie"}>O Mnie</Link>
               </li>
             </ul>
@@ -93,26 +93,42 @@ export default function Nav() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute top-0 left-0 w-full h-screen bg-white z-40"
+              className="absolute top-0 left-0 w-full h-screen bg-black z-40"
             >
-              <ul className="flex flex-col items-center gap-8 mt-[12rem] text-2xl text-black">
+              <ul className="flex flex-col items-center gap-8 mt-[12rem] text-2xl ">
                 <li>
-                  <Link href={"/"} onClick={closeMenu}>
+                  <Link
+                    className="hover:text-[#4A4AFF]"
+                    href={"/"}
+                    onClick={closeMenu}
+                  >
                     Strona Główna
                   </Link>
                 </li>
                 <li>
-                  <Link href={"#portfolio"} onClick={closeMenu}>
+                  <Link
+                    className="hover:text-[#4A4AFF]"
+                    href={"/#portfolio"}
+                    onClick={closeMenu}
+                  >
                     Portfolio
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/kontakt"} onClick={closeMenu}>
+                  <Link
+                    className="hover:text-[#4A4AFF]"
+                    href={"/kontakt"}
+                    onClick={closeMenu}
+                  >
                     Kontakt
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/o-mnie"} onClick={closeMenu}>
+                  <Link
+                    className="hover:text-[#4A4AFF]"
+                    href={"/o-mnie"}
+                    onClick={closeMenu}
+                  >
                     O Mnie
                   </Link>
                 </li>

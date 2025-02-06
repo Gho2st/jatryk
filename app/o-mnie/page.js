@@ -3,6 +3,7 @@ import Footer from "@/components/footer/Footer";
 import Button from "@/components/buttons/Button";
 import AboutHero from "./AboutHero";
 import Image from "next/image";
+import Work from "./Work";
 
 export const metadata = {
   title: "O mnie – Jatryk | Patryk Jędrzejek",
@@ -19,47 +20,9 @@ export default function About() {
     <>
       <Nav />
       <AboutHero />
-      {/* cooperate section */}
-      <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 bg-gradient-to-tl from-blue-400 to-blue-800 text-white">
-        <div>
-          <h2 className="text-4xl xl:text-5xl leading-snug uppercase text-center">
-            Jak przebiega współpraca?
-          </h2>
-          {/* items */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-10 mt-20 xl:mt-32">
-            <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
-              <p className="text-5xl">1</p>
-              <p className="mt-8">
-                Umówimy się na spotkanie, na którym wspólnie uzupełnimy brief
-                zawierający kluczowe informacje o marce.
-              </p>
-            </div>
-            <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
-              <p className="text-5xl">2</p>
-              <p className="mt-8">
-                Następnie przejdę do zaprojektowania moodboardu, który pomoże
-                nam określić kierunek wizualny.
-              </p>
-            </div>
-            <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
-              <p className="text-5xl">3</p>
-              <p className="mt-8">
-                Po akceptacji propozycji estetyki. Przechodzę do stworzenia
-                docelowego projektu logo / identyfikacji / strony www.
-              </p>
-            </div>
-            <div className="border-white p-6 2xl:p-10 border-solid border-2 rounded-xl">
-              <p className="text-5xl">4</p>
-              <p className="mt-8">
-                W momencie gdy padnie akceptacja, przechodzę do finalizacji
-                współpracy. Przekazuje pliki oraz prawa do projektu.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Work />
       {/* loga */}
-      <section className="px-6 md:px-16 lg:px-20 xl:px-32 flex flex-col md:flex-row gap-20 md:gap-24 py-20 xl:py-24 bg-white text-black">
+      <section className="px-6 md:px-16 lg:px-20 xl:px-32 flex flex-col md:flex-row gap-20 md:gap-24 py-20 xl:py-24">
         <div className="md:w-2/3 xl:w-1/2">
           <h2 className="text-4xl xl:text-5xl uppercase mb-12">Widzę to tak</h2>
           <p>
@@ -81,6 +44,7 @@ export default function About() {
               width={100}
               height={100}
               layout="responsive"
+              alt=""
             />
           </div>
           <div className="flex items-center justify-center">
@@ -89,6 +53,7 @@ export default function About() {
               width={100}
               height={100}
               layout="responsive"
+              alt=""
             />
           </div>
           <div className="flex items-center justify-center">
@@ -97,6 +62,7 @@ export default function About() {
               width={100}
               height={100}
               layout="responsive"
+              alt=""
             />
           </div>
           <div className="flex items-center justify-center">
@@ -105,6 +71,7 @@ export default function About() {
               width={100}
               height={100}
               layout="responsive"
+              alt=""
             />
           </div>
         </div>
@@ -116,7 +83,7 @@ export default function About() {
             <video
               controls
               playsInline
-              className="mx-auto md:w-4/5 xl:w-2/3  border-[#EFB036] shadow-xl border-solid border-8 rounded-2xl"
+              className="mx-auto md:w-4/5 xl:w-2/3  border-[#4A4AFF] shadow-xl border-solid border-8 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.

@@ -60,7 +60,7 @@ export default function ContactPage() {
       <Nav />
       {!formSubmitted ? (
         <section className="px-6 xl:px-32">
-          <h1 className="text-4xl xl:text-5xl 2xl:text-6xl text-center font-semibold my-10 2xl:my-24">
+          <h1 className="text-4xl xl:text-5xl text-[#4A4AFF] 2xl:text-6xl text-center font-semibold my-10 2xl:my-24">
             Kontakt
           </h1>
           {formError && (
@@ -130,8 +130,7 @@ export default function ContactPage() {
               />
               <div className="flex justify-center xl:justify-start mb-16 xl:mb-32 mt-6">
                 <button
-                  className="px-6 py-3 text-xl font-medium  bg-[#EFB036] 
-                   hover:bg-[#d89c2a] active:bg-[#bf8925] focus:ring-4 focus:ring-[#f4c86f] 
+                  className="px-6 py-3 text-xl font-medium  bg-[#4A4AFF] 
                    rounded-xl shadow-md transition-all duration-300 ease-in-out transform 
                    hover:-translate-y-1 hover:shadow-lg"
                   type="submit"

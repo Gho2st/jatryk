@@ -18,7 +18,7 @@ export default function AboutHero() {
     <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-44 2xl:pb-96 2xl:pt-32 ">
       <div className="flex flex-col md:flex-row gap-16 justify-between md:gap-24">
         <div className="md:w-2/3 xl:w-1/2">
-          <h1 className="text-4xl leading-snug xl:text-5xl xl:leading-snug mt-10 mb-10 font-semibold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl leading-snug xl:text-5xl xl:leading-snug mt-10 mb-10 2xl:mt-0 font-semibold text-[#4A4AFF] ">
             Trochę więcej o sobie
           </h1>
           <div className="2xl:text-2xl">
@@ -29,7 +29,7 @@ export default function AboutHero() {
               mogę Tobie pomóc w sukcesywnym budowaniu dobrej komunikacji
               wizualnej.
             </p>
-            <p className="my-10">
+            <p className="my-10 2xl:mb-16">
               Do każdej współpracy z klientem podchodzę indywidualnie, co
               finalnie skutkuje unikalnym projektem logo, strony internetowej,
               czy innego projektu, który został mi zlecony.

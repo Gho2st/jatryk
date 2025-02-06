@@ -24,11 +24,11 @@ export default function PortfolioItem(props) {
 
       {/* Text Section */}
       <div className="md:w-2/5">
-        <h3 className="text-3xl xl:text-4xl font-semibold mt-12 xl:mt-0">
+        <h3 className="text-3xl xl:text-4xl font-semibold mt-12 xl:mt-0 2xl:text-5xl">
           {props.title}
         </h3>
         <p className="my-6">{props.description}</p>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center hover:text-[#4A4AFF] transition-all ease-linear">
           <Link href={link}>Zobacz więcej</Link>
           <FaArrowRightToBracket />
         </div>
