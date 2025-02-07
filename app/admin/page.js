@@ -2,11 +2,10 @@ import AdminPanel from "./Admin";
 
 export const metadata = {
   title: "Panel Administratora - Jatryk",
+  robots: "noindex, nofollow", // Zapobiega indeksowaniu przez Google
   alternates: {
     canonical: "/admin",
   },
-
-  description: "Panel Admina strony grafika Patryka Jędrzejka - Jatryk",
 };
 
 export default function Page() {
