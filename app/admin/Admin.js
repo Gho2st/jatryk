@@ -267,7 +267,7 @@ export default function AdminPanel() {
             onChange={(e) => setLongDescription(e.target.value)}
             className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-
+          <h3 className="text-white mb-5">Dodaj zdjęcie główne</h3>
           <input
             type="file"
             onChange={(e) => handleImageUpload(e.target.files[0])}
@@ -277,6 +277,7 @@ export default function AdminPanel() {
           {imageURL && (
             <img src={imageURL} alt="Podgląd" width={100} className="mb-4" />
           )}
+          <h3 className="text-white mb-5">Dodaj zdjęcia dodatkowe</h3>
 
           <input
             type="file"
