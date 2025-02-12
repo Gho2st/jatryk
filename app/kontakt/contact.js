@@ -37,7 +37,7 @@ export default function ContactPage() {
       return;
     }
 
-    console.log("Wysyłanie danych:", { ...formData, recaptchaToken }); // Dodaj logowanie danych
+    console.log("Wysyłanie danych:", { recaptchaToken }); // Dodaj logowanie danych
 
     try {
       const response = await fetch("/api/send-email", {
