@@ -56,7 +56,8 @@ export async function POST(request) {
 
     const mailOption = {
       from: "domiweb.biuro@gmail.com",
-      to: "jatryk.designer@gmail.com",
+      // to: "jatryk.designer@gmail.com",
+      to: "jestemfajny1244@gmail.com",
       replyTo: email,
       subject: "Email ze strony Jatryk Designer od klienta",
       html: `
