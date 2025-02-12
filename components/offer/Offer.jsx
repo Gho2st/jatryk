@@ -16,8 +16,8 @@ export default function Offer() {
 
       if (width < 768) {
         // Mobile
-        setXRange(["30%", "50%"]);
-        setYRange(["20%", "55%"]);
+        setXRange(["0%", "0%"]);
+        setYRange(["0%", "80%"]);
       } else if (width < 1400) {
         // Tablet
         setXRange(["-10%", "130%"]);
