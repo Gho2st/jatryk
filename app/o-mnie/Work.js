@@ -1,12 +1,38 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Work() {
   const { scrollY } = useScroll();
+  const [xRange, setXRange] = useState(["-20%", "100%"]);
+  const [yRange, setYRange] = useState(["0%", "20%"]);
 
-  // Ruch kuli w pionie i poziomie
-  const ballX = useTransform(scrollY, [0, 1500], ["-20%", "100%"]);
-  const ballY = useTransform(scrollY, [200, 1000], ["-20%", "30%"]);
+  useEffect(() => {
+    const updateRanges = () => {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        // Mobile
+        setXRange(["0%", "0%"]);
+        setYRange(["-80%", "70%"]);
+      } else if (width < 1400) {
+        // Tablet
+        setXRange(["-10%", "90%"]);
+        setYRange(["0%", "20%"]);
+      } else {
+        // Desktop
+        setXRange(["-10%", "100%"]);
+        setYRange(["0%", "15%"]);
+      }
+    };
+
+    updateRanges();
+    window.addEventListener("resize", updateRanges);
+    return () => window.removeEventListener("resize", updateRanges);
+  }, []);
+
+  const ballX = useTransform(scrollY, [0, 1500], xRange);
+  const ballY = useTransform(scrollY, [0, 1000], yRange);
   return (
     <section className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 text-white relative overflow-hidden md:overflow-visible">
       {/* Gradientowa kula */}

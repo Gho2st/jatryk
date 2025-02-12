@@ -3,16 +3,42 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { PiCodaLogoBold } from "react-icons/pi";
 import { FaPencilAlt } from "react-icons/fa";
 import { MdNaturePeople } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 export default function Offer() {
   const { scrollY } = useScroll();
+  const [xRange, setXRange] = useState(["-20%", "100%"]);
+  const [yRange, setYRange] = useState(["0%", "20%"]);
 
-  // Ruch kuli w pionie i poziomie
-  const ballX = useTransform(scrollY, [0, 1500], ["-20%", "100%"]);
-  const ballY = useTransform(scrollY, [200, 1000], ["0%", "20%"]);
+  useEffect(() => {
+    const updateRanges = () => {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        // Mobile
+        setXRange(["30%", "50%"]);
+        setYRange(["20%", "55%"]);
+      } else if (width < 1400) {
+        // Tablet
+        setXRange(["-10%", "130%"]);
+        setYRange(["0%", "20%"]);
+      } else {
+        // Desktop
+        setXRange(["-10%", "180%"]);
+        setYRange(["0%", "15%"]);
+      }
+    };
+
+    updateRanges();
+    window.addEventListener("resize", updateRanges);
+    return () => window.removeEventListener("resize", updateRanges);
+  }, []);
+
+  const ballX = useTransform(scrollY, [0, 1500], xRange);
+  const ballY = useTransform(scrollY, [200, 1000], yRange);
 
   return (
-    <section className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden  md:overflow-visible">
+    <section className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden md:overflow-visible">
       {/* Gradientowa kula */}
       <motion.div
         style={{ x: ballX, y: ballY, willChange: "transform" }}

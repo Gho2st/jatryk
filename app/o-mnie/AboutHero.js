@@ -26,7 +26,7 @@ export default function AboutHero() {
           </div>
           <Button text="Zróbmy to razem!" link="/kontakt" />
         </div>
-        <div className="md:w-1/3 flex justify-center items-center">
+        <div className="md:w-1/3 xl:w-1/4 flex justify-center items-center">
           <motion.div
             animate={{
               rotate: [0, 15, -10, 20, -5, 0], // Nieregularne kąty
