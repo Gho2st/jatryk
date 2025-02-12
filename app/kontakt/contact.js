@@ -145,13 +145,13 @@ export default function ContactPage() {
                 <div className="flex items-center">
                   <FaPhone className="text-2xl" />
                 </div>
-                <p className="text-xl">576 985 894</p>
+                <p className="text-xl">531771378</p>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center">
                   <MdEmail className="text-2xl" />
                 </div>
-                <p className="text-xl">patrykjedrzejek@gmail.com</p>
+                <p className="text-xl">jatryk.designer@gmail.com</p>
               </div>
             </div>
           </div>
