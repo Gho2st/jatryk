@@ -149,7 +149,7 @@ export default function ContactPage() {
               </div>
             </form>
             {/* Other ways of contact */}
-            <div className="mb-24 flex flex-col gap-6 items-center ">
+            <div className="mb-24 flex flex-col gap-6 items-center text-white ">
               <div className="flex gap-4">
                 <div className="flex items-center">
                   <FaPhone className="text-2xl" />
