@@ -204,9 +204,11 @@ export default function AdminPanel() {
   // Jeśli użytkownik nie jest zalogowany, pokaż formularz logowania
   if (!user) {
     return (
-      <div className="max-w-md mx-auto p-6  shadow-md rounded-lg mt-20">
-        <h2 className="text-2xl font-semibold text-center mb-4">Logowanie</h2>
-        {error && <p className="text-red-600">{error}</p>}
+      <div className="max-w-md mx-auto p-6  shadow-md rounded-lg mt-20 text-black">
+        <h2 className="text-2xl font-semibold text-center mb-4 text-white">
+          Logowanie
+        </h2>
+        {error && <p className="text-red-600 mb-5">{error}</p>}
         <input
           type="email"
           placeholder="E-mail"
@@ -223,7 +225,7 @@ export default function AdminPanel() {
         />
         <button
           onClick={handleLogin}
-          className="w-full p-3 bg-blue-600  rounded-md hover:bg-blue-700"
+          className="w-full p-3 bg-blue-600 text-white  rounded-md hover:bg-blue-700"
         >
           Zaloguj się
         </button>
@@ -235,9 +237,19 @@ export default function AdminPanel() {
     <>
       <Nav />
       <div className="max-w-4xl mx-auto p-6 text-black">
-        <h1 className="text-3xl font-semibold text-center mb-6 text-white">
-          Panel administracyjny
-        </h1>
+        <div className="text-white">
+          <h1 className="text-3xl font-semibold text-center mb-6 text-white">
+            Panel administracyjny
+          </h1>
+        </div>
+        <div className=" flex justify-center">
+          <button
+            className="inline-block bg-blue-50 hover:bg-blue-300 px-6 py-1 hover:cursor-pointer  text-blue-800"
+            onClick={handleLogout}
+          >
+            Wyloguj
+          </button>
+        </div>
 
         <div className=" shadow-lg p-6 rounded-lg mb-6">
           <h2 className="text-2xl font-semibold mb-4 text-white">
