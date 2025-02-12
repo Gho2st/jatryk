@@ -66,12 +66,12 @@ export default function ContactPage() {
           {formError && (
             <p className="text-red-500 mb-6 text-center">{formError}</p>
           )}
-          <div className="xl:grid xl:grid-cols-2">
+          <div className="xl:grid xl:grid-cols-2 text-black">
             <form onSubmit={sendMail} className="">
               {/* input div */}
               <div className="grid gap-6">
                 <div>
-                  <label className="text-lg" htmlFor="name">
+                  <label className="text-lg text-white" htmlFor="name">
                     Twoje Imię:
                   </label>
                   <input
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-lg" htmlFor="name">
+                  <label className="text-lg text-white" htmlFor="name">
                     Twój adres e-mail
                   </label>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-lg" htmlFor="name">
+                  <label className="text-lg text-white" htmlFor="name">
                     Wiadomość
                   </label>
                   <textarea
