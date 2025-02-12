@@ -36,13 +36,13 @@ export default function Hero() {
           {displayText}
         </motion.h1>
         <motion.p
-          className="mt-10 mb-10 xl:mb-14 2xl:mb-24 text-xl 2xl:text-2xl lg:w-1/2 xl:w-full text-gray-300"
+          className="mt-10 mb-10 xl:mb-14 2xl:mb-24 text-xl font-semibold 2xl:text-2xl lg:w-1/2 xl:w-full text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          Potrzebujesz kreatywnego grafika z pasją do tworzenia wizualnych
-          opowieści?
+          Od 3 lat pomagam firmom budować silne marki projektując dla nich
+          komunikację wizualną
         </motion.p>
         <div>
           <Button text="Porozmawiajmy" link="/kontakt" />

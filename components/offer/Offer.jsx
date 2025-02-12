@@ -61,7 +61,7 @@ export default function Offer() {
         </div>
         <div>
           <FaPencilAlt className="text-6xl md:text-7xl mx-auto" />
-          <p className="text-center mt-8 xl:text-xl">Nazwa Firmy</p>
+          <p className="text-center mt-8 xl:text-xl">Konsultacje</p>
         </div>
       </div>
     </section>
