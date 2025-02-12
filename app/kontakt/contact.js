@@ -177,7 +177,7 @@ export default function ContactPage() {
           </div>
         </section>
       ) : (
-        <div className="px-6 text-center my-10">
+        <div className="px-6 text-center my-10 xl:mt-16">
           <h2 className="mb-6 text-3xl xl:text-5xl text-[#4A4AFF] font-semibold">
             Dziękuje za wiadomość!
           </h2>
