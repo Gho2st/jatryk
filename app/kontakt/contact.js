@@ -30,6 +30,14 @@ export default function ContactPage() {
       return;
     }
 
+    // Get the reCAPTCHA token
+    const recaptchaToken = await recaptchaRef.current.executeAsync();
+
+    if (!recaptchaToken) {
+      setFormError("Weryfikacja reCAPTCHA nie powiodła się.");
+      return;
+    }
+
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
