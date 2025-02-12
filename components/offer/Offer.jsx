@@ -4,6 +4,7 @@ import { PiCodaLogoBold } from "react-icons/pi";
 import { FaPencilAlt } from "react-icons/fa";
 import { MdNaturePeople } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 export default function Offer() {
   const { scrollY } = useScroll();
@@ -60,7 +61,7 @@ export default function Offer() {
           <p className="text-center mt-8 xl:text-xl">Identyfikacja Marki</p>
         </div>
         <div>
-          <FaPencilAlt className="text-6xl md:text-7xl mx-auto" />
+          <FaPeopleGroup className="text-6xl md:text-7xl mx-auto" />
           <p className="text-center mt-8 xl:text-xl">Konsultacje</p>
         </div>
       </div>
