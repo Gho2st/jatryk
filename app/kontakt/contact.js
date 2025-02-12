@@ -13,6 +13,7 @@ export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(null);
   const [errorFields, setErrorFields] = useState([]);
+  const [isSending, setIsSending] = useState(false);
   const recaptchaRef = useRef(null);
 
   const sendMail = async (e) => {
@@ -37,7 +38,7 @@ export default function ContactPage() {
       return;
     }
 
-    // console.log("Wysyłanie danych:", { recaptchaToken }); // Dodaj logowanie danych
+    setIsSending(true); // Set "sending" to true before the request
 
     try {
       const response = await fetch("/api/send-email", {
@@ -61,6 +62,8 @@ export default function ContactPage() {
     } catch (error) {
       console.error("Unexpected error:", error);
       setFormError("Wystąpił nieoczekiwany błąd.");
+    } finally {
+      setIsSending(false); // Reset "sending" to false after request completes
     }
   };
 
@@ -143,8 +146,10 @@ export default function ContactPage() {
                    rounded-xl shadow-md transition-all duration-300 ease-in-out transform 
                    hover:-translate-y-1 hover:shadow-lg"
                   type="submit"
+                  disabled={isSending} // Disable the button while sending
                 >
-                  Wyślij
+                  {isSending ? "Wysyłanie..." : "Wyślij"}{" "}
+                  {/* Show loading text */}
                 </button>
               </div>
             </form>
@@ -167,8 +172,12 @@ export default function ContactPage() {
         </section>
       ) : (
         <div className="px-6 text-center my-10">
-          <h2 className="mb-6">Dziękuje za wiadomość!</h2>
-          <p>Skontaktuje się z Tobą najszybciej, jak to możliwe!</p>
+          <h2 className="mb-6 text-3xl xl:text-5xl text-[#4A4AFF] font-semibold">
+            Dziękuje za wiadomość!
+          </h2>
+          <p className="text-lg">
+            Skontaktuje się z Tobą najszybciej, jak to możliwe!
+          </p>
         </div>
       )}
       <Footer />
