@@ -23,7 +23,7 @@ async function verifyRecaptcha(token) {
 export async function POST(request) {
   try {
     const { message, name, email, recaptchaToken } = await request.json();
-    console.log("Otrzymany reCAPTCHA token:", recaptchaToken);
+    // console.log("Otrzymany reCAPTCHA token:", recaptchaToken);
 
     if (!email || !name || !message || !recaptchaToken) {
       return NextResponse.json(
@@ -63,7 +63,7 @@ export async function POST(request) {
       subject: "Email ze strony Jatryk Designer od klienta",
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
-          <h2 style="color: #4CAF50; text-align: center;">Nowa wiadomość od klienta ze strony Barbary Piękoś</h2>
+          <h2 style="color: #4A4AFF; text-align: center;">Nowa wiadomość od klienta ze strony jatrykdesigner</h2>
           <p style="font-size: 16px; color: #555;">Otrzymałeś wiadomość od klienta:</p>
           <ul style="list-style-type: none; padding: 0;">
             <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
@@ -73,7 +73,7 @@ export async function POST(request) {
               <strong>Wiadomość:</strong> ${message}
             </li>
             <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-              <strong>Email:</strong> <a href="mailto:${email}" style="color: #4CAF50;">${email}</a>
+              <strong>Email:</strong> <a href="mailto:${email}" style="color: #4A4AFF;">${email}</a>
             </li>
           </ul>
           <p style="font-size: 14px; color: #888; text-align: center; margin-top: 20px;">

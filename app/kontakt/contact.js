@@ -37,7 +37,7 @@ export default function ContactPage() {
       return;
     }
 
-    console.log("Wysyłanie danych:", { recaptchaToken }); // Dodaj logowanie danych
+    // console.log("Wysyłanie danych:", { recaptchaToken }); // Dodaj logowanie danych
 
     try {
       const response = await fetch("/api/send-email", {
@@ -166,7 +166,7 @@ export default function ContactPage() {
           </div>
         </section>
       ) : (
-        <div className="text-center my-10">
+        <div className="px-6 text-center my-10">
           <h4>Dziękujemy za wiadomość!</h4>
           <p>Nasz zespół skontaktuje się z Tobą najszybciej, jak to możliwe!</p>
         </div>
