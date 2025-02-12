@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -87,7 +88,7 @@ export default function ContactPage() {
                     Twoje Imię:
                   </label>
                   <input
-                    className={`border rounded-md p-2 mt-4 w-full ${
+                    className={`border-4 rounded-md p-2 mt-4 w-full ${
                       errorFields.includes("name")
                         ? "border-red-500"
                         : "border-gray-300"
@@ -110,7 +111,7 @@ export default function ContactPage() {
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`border rounded-md p-2 mt-4 w-full ${
+                    className={`border-4 rounded-md p-2 mt-4 w-full ${
                       errorFields.includes("name")
                         ? "border-red-500"
                         : "border-gray-300"
@@ -127,7 +128,7 @@ export default function ContactPage() {
                     placeholder="Potrzebuję logo..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className={`border rounded-md p-2 mt-4 w-full ${
+                    className={`border-4 rounded-md p-2 mt-4 w-full ${
                       errorFields.includes("name")
                         ? "border-red-500"
                         : "border-gray-300"
@@ -159,7 +160,12 @@ export default function ContactPage() {
                 <div className="flex items-center">
                   <FaPhone className="text-2xl" />
                 </div>
-                <p className="text-xl">531771378</p>
+                <Link
+                  className="text-xl hover:text-[#4A4AFF] transition-all ease-in"
+                  href="tel:+48531771378"
+                >
+                  (+48) 531 771 378
+                </Link>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center">
