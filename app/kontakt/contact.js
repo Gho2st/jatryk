@@ -167,8 +167,8 @@ export default function ContactPage() {
         </section>
       ) : (
         <div className="px-6 text-center my-10">
-          <h4>Dziękujemy za wiadomość!</h4>
-          <p>Nasz zespół skontaktuje się z Tobą najszybciej, jak to możliwe!</p>
+          <h2 className="mb-6">Dziękuje za wiadomość!</h2>
+          <p>Skontaktuje się z Tobą najszybciej, jak to możliwe!</p>
         </div>
       )}
       <Footer />
