@@ -30,13 +30,14 @@ export default function ContactPage() {
       return;
     }
 
-    // Get the reCAPTCHA token
-    const recaptchaToken = await recaptchaRef.current.executeAsync();
-
+    // Pobranie tokena reCAPTCHA
+    const recaptchaToken = recaptchaRef.current.getValue();
     if (!recaptchaToken) {
-      setFormError("Weryfikacja reCAPTCHA nie powiodła się.");
+      setFormError("Proszę zaznacz, że nie jesteś robotem przed wysłaniem.");
       return;
     }
+
+    console.log("Wysyłanie danych:", { ...formData, recaptchaToken }); // Dodaj logowanie danych
 
     try {
       const response = await fetch("/api/send-email", {
