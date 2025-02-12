@@ -23,8 +23,9 @@ async function verifyRecaptcha(token) {
 export async function POST(request) {
   try {
     const { message, name, email, recaptchaToken } = await request.json();
+    console.log("Otrzymany reCAPTCHA token:", recaptchaToken);
 
-    if (!email || !name || !message || !email) {
+    if (!email || !name || !message || !recaptchaToken) {
       return NextResponse.json(
         { message: "All fields are required" },
         { status: 400 }
