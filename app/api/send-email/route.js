@@ -24,7 +24,7 @@ export async function POST(request) {
   try {
     const { message, name, email, recaptchaToken } = await request.json();
 
-    if (!email || !text || !phoneNumber || !fullName) {
+    if (!email || !name || !message || !email) {
       return NextResponse.json(
         { message: "All fields are required" },
         { status: 400 }
