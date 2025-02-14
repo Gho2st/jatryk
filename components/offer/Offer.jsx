@@ -21,7 +21,7 @@ export default function Offer() {
         setYRange(["0%", "80%"]);
       } else if (width < 1400) {
         // Tablet
-        setXRange(["-10%", "130%"]);
+        setXRange(["0%", "100%"]);
         setYRange(["0%", "20%"]);
       } else {
         // Desktop
@@ -35,7 +35,7 @@ export default function Offer() {
     return () => window.removeEventListener("resize", updateRanges);
   }, []);
 
-  const ballX = useTransform(scrollY, [0, 1500], xRange);
+  const ballX = useTransform(scrollY, [0, 1000], xRange);
   const ballY = useTransform(scrollY, [200, 1000], yRange);
 
   return (
@@ -43,7 +43,7 @@ export default function Offer() {
       {/* Gradientowa kula */}
       <motion.div
         style={{ x: ballX, y: ballY, willChange: "transform" }}
-        className="absolute top-0 left-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-gradient-to-br from-[#4A4AFF] to-[#4A4AFF] rounded-full blur-[120px] opacity-40"
+        className="absolute top-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-gradient-to-br from-[#4A4AFF] to-[#4A4AFF] rounded-full blur-[120px] opacity-40"
       />
       <div className="relative text-white flex justify-center">
         <h2 className="px-10 rounded-xl text-center text-5xl 2xl:text-6xl font-semibold">

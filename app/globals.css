@@ -10,3 +10,20 @@ html {
 body {
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222; /* Ciemne tło */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* Ciemniejszy kolor scrolla */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Jaśniejszy przy najechaniu */
+}

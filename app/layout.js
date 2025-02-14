@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Jatryk - kreatywny grafik specjalizujący się w projektowaniu logo, identyfikacji wizualnej i brandingiem. Pomagam markom wyróżnić się na rynku poprzez unikalne i estetyczne projekty graficzne.",
   alternates: {
-    canonical: "/",
+    canonical: "https://www.jatrykdesigner.pl/",
   },
   openGraph: {
     type: "website",

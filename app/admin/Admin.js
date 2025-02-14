@@ -7,6 +7,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import Nav from "@/components/nav/Nav";
+import Gallery from "./changeGallery";
+import Footer from "@/components/footer/Footer";
 
 export default function AdminPanel() {
   const [user, setUser] = useState(null);
@@ -370,7 +372,9 @@ export default function AdminPanel() {
             </li>
           ))}
         </ul>
+        <Gallery />
       </div>
+      <Footer />
     </>
   );
 }
