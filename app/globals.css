@@ -27,3 +27,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #777; /* Jaśniejszy przy najechaniu */
 }
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+}

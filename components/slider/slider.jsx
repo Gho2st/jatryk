@@ -33,14 +33,16 @@ export default function Gallery() {
 
   const carouselSettings = {
     infinite: true,
-    speed: 500,
+    speed: 250,
     lazyLoad: "ondemand",
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 6000,
     cssEase: "linear",
     initialSlide: 0,
+    centerMode: true,
+
     responsive: [
       {
         breakpoint: 1334,
@@ -54,6 +56,7 @@ export default function Gallery() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: false,
         },
       },
     ],
@@ -77,7 +80,7 @@ export default function Gallery() {
       {!loading && gallery.length > 0 && (
         <Slider
           {...carouselSettings}
-          className="md:w-11/12 m-auto my-20 2xl:mt-36 md:px-6 2xl:px-20 overflow-x-hidden md:overflow-x-visible  "
+          className=" md:w-11/12 m-auto my-20 2xl:mt-36 md:px-6 2xl:px-20 overflow-x-hidden md:overflow-x-visible   "
         >
           {gallery.map((image, index) => (
             <Image
@@ -86,7 +89,7 @@ export default function Gallery() {
               alt={`Gallery Image ${index}`}
               width={500}
               height={500}
-              className="px-2 rounded-xl 2xl:h-full object-cover"
+              className="px-2 md:rounded-xl"
             />
           ))}
         </Slider>
