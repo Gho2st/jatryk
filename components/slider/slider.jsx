@@ -42,6 +42,7 @@ export default function Gallery() {
     cssEase: "linear",
     initialSlide: 0,
     centerMode: true,
+    dots: false,
 
     responsive: [
       {
@@ -57,13 +58,15 @@ export default function Gallery() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: false,
+          dots: true,
+          arrows: false,
         },
       },
     ],
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 mt-10 overflow-hidden">
       {/* Komunikat błędu lub sukcesu */}
       {message && (
         <p className="text-center text-white bg-gray-700 p-2 rounded-lg my-4">
@@ -73,14 +76,14 @@ export default function Gallery() {
 
       {/* Ładowanie galerii */}
       {loading && (
-        <p className="text-center text-white">🔄 Ładowanie galerii...</p>
+        <p className="text-center mt-10 text-white">🔄 Ładowanie galerii...</p>
       )}
 
       {/* Jeśli galeria została załadowana, wyświetlamy karuzelę */}
       {!loading && gallery.length > 0 && (
         <Slider
           {...carouselSettings}
-          className="w-11/12  m-auto my-20 2xl:mt-36 md:px-6 2xl:px-20 overflow-x-hidden md:overflow-x-visible   "
+          className="w-11/12 mx-auto my-20 2xl:mt-36 md:px-6 2xl:px-20   "
         >
           {gallery.map((image, index) => (
             <Image
