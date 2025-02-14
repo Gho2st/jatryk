@@ -33,7 +33,7 @@ export default function Gallery() {
 
   const carouselSettings = {
     infinite: true,
-    speed: 250,
+    speed: 800,
     lazyLoad: "ondemand",
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -80,7 +80,7 @@ export default function Gallery() {
       {!loading && gallery.length > 0 && (
         <Slider
           {...carouselSettings}
-          className=" md:w-11/12 m-auto my-20 2xl:mt-36 md:px-6 2xl:px-20 overflow-x-hidden md:overflow-x-visible   "
+          className="w-11/12  m-auto my-20 2xl:mt-36 md:px-6 2xl:px-20 overflow-x-hidden md:overflow-x-visible   "
         >
           {gallery.map((image, index) => (
             <Image
