@@ -39,7 +39,10 @@ export default function Offer() {
   const ballY = useTransform(scrollY, [200, 1000], yRange);
 
   return (
-    <section className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden md:overflow-visible">
+    <section
+      id="portfolio"
+      className="relative px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-32 text-white overflow-hidden md:overflow-visible"
+    >
       {/* Gradientowa kula */}
       <motion.div
         style={{ x: ballX, y: ballY, willChange: "transform" }}

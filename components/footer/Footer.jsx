@@ -2,9 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="px-6 md:px-16 lg:px-20 xl:px-32 py-20 xl:py-24 ">
-      <h2 className="uppercase text-3xl xl:text-5xl leading-snug  text-white xl:leading-snug">
+      <h2 className="uppercase text-3xl xl:text-5xl leading-snug text-white xl:leading-snug">
         Masz pomysł? Zamieńmy go w rzeczywistość!
       </h2>
       <div className="md:flex md:flex-row-reverse md:justify-between md:mt-32">
@@ -33,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="mt-24 text-center text-white ">
-        @ 2024 Jatryk Projekt i realizacja{" "}
+        @ {currentYear} Jatryk Projekt i realizacja{" "}
         <Link
           className="text-[#4A4AFF] font-bold"
           href="https://www.domiweb.pl/"
