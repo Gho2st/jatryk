@@ -12,7 +12,7 @@ export default function Footer() {
           <Link className="mx-auto" href="/">
             Strona Główna
           </Link>
-          <Link className="mx-auto" href="/portfolio">
+          <Link className="mx-auto" href="/#portfolio">
             Portfolio
           </Link>
           <Link className="mx-auto" href="/kontakt">

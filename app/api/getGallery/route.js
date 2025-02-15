@@ -14,7 +14,7 @@ export async function GET() {
         return { name: item.name, url };
       })
     );
-    console.log(imageUrls);
+    // console.log(imageUrls);
     return NextResponse.json(imageUrls);
   } catch (error) {
     console.error("Błąd podczas pobierania zdjęć:", error);
