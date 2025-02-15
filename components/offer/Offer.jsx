@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { PiCodaLogoBold } from "react-icons/pi";
-import { FaPencilAlt } from "react-icons/fa";
+import { TbWorldWww } from "react-icons/tb";
 import { MdNaturePeople } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { FaPeopleGroup } from "react-icons/fa6";
@@ -63,6 +63,10 @@ export default function Offer() {
         <div>
           <FaPeopleGroup className="text-6xl md:text-7xl mx-auto" />
           <p className="text-center mt-8 xl:text-xl">Konsultacje</p>
+        </div>
+        <div>
+          <TbWorldWww className="text-6xl md:text-7xl mx-auto" />
+          <p className="text-center mt-8 xl:text-xl">Projekt Strony</p>
         </div>
       </div>
     </section>
