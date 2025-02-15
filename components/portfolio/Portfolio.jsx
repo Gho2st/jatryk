@@ -39,10 +39,7 @@ export default function Portfolio() {
   }
 
   return (
-    <section
-      id="portfolio"
-      className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-24 2xl:py-24 "
-    >
+    <section className="px-6 md:px-16 lg:px-20 xl:px-32 pb-20 xl:pb-24 2xl:py-24 ">
       <div className="grid grid-cols-1 gap-6">
         {projects.length > 0 ? (
           projects.map((item) => (

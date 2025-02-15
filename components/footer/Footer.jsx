@@ -23,6 +23,13 @@ export default function Footer() {
           <Link className="mx-auto" href="/o-mnie">
             O Mnie
           </Link>
+          <Link
+            className="mx-auto"
+            href="/polityka_prywatnosci_jatryk.pdf"
+            target="_blank"
+          >
+            Polityka Prywatności
+          </Link>
         </div>
         <div className="px-6 md:w-1/3">
           <Image
