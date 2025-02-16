@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       title: project ? project.title : "Projekt nie znaleziony",
       description: project ? project.description : "Opis niedostępny",
       alternates: {
-        canonical: `/portfolio/${project.title}`,
+        canonical: `/portfolio/${project.url}`,
       },
     };
   } catch (error) {
