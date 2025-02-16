@@ -3,9 +3,10 @@ import PortfolioSlug from "./portfolioSlug";
 // Funkcja do pobierania projektu na podstawie slug
 const fetchProject = async (slug) => {
   try {
+    // Zamiana "-" na spacje
+    const formattedSlug = slug.replace(/-/g, " ");
     const response = await fetch(
-      // `http://localhost:3000/api/getProjectBySlug/${slug}`
-      `https://jatrykdesigner.pl/api/getProjectBySlug/${slug}`
+      `https://jatrykdesigner.pl/api/getProjectBySlug/${formattedSlug}`
     );
     if (!response.ok) {
       throw new Error("Projekt nie znaleziony");
@@ -20,19 +21,24 @@ const fetchProject = async (slug) => {
 
 // Funkcja do generowania metadanych dynamicznie
 export async function generateMetadata({ params }) {
-  const project = await fetchProject(params.slug);
+  // Poczekaj na dostęp do params
+  const { slug } = await params;
+  const project = await fetchProject(slug);
 
   return {
     title: project ? project.title : "Projekt nie znaleziony",
     description: project ? project.description : "Opis niedostępny",
     alternates: {
-      canonical: `/portfolio${project.title}`,
+      canonical: `/portfolio/${project.title}`,
     },
   };
 }
 
 export default async function Page({ params }) {
-  const project = await fetchProject(params.slug);
+  // Poczekaj na dostęp do params
+  const { slug } = await params;
+
+  const project = await fetchProject(slug);
 
   return <PortfolioSlug project={project} />;
 }

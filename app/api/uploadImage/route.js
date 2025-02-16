@@ -6,6 +6,7 @@ export async function POST(req) {
   try {
     const formData = await req.formData();
     const files = formData.getAll("file");
+    console.log(files);
 
     if (!files.length) {
       return NextResponse.json({ error: "Brak plików" }, { status: 400 });

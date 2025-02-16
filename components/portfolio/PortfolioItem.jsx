@@ -4,7 +4,7 @@ import { FaArrowRightToBracket } from "react-icons/fa6";
 
 export default function PortfolioItem(props) {
   console.log(props);
-  const link = "/portfolio/" + props.title;
+  const link = "/portfolio/" + props.title.replace(/\s+/g, "-");
   return (
     <div
       className={`mt-10 md:mt-24 xl:mt-32  md:flex md:gap-24 md:justify-center ${
@@ -13,13 +13,19 @@ export default function PortfolioItem(props) {
     >
       {/* Image Section */}
       <div className="md:w-1/3 ">
-        <Image
-          src={props.imageURL}
-          width={100}
-          height={100}
-          layout="responsive"
-          alt={props.title}
-        />
+        {props.imageURL ? (
+          <Image
+            src={props.imageURL}
+            width={100}
+            height={100}
+            layout="responsive"
+            alt={props.title}
+          />
+        ) : (
+          <div className="w-full h-[200px] flex items-center justify-center bg-gray-300 text-gray-700">
+            Brak zdjęcia
+          </div>
+        )}
       </div>
 
       {/* Text Section */}

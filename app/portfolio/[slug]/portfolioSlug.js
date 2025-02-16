@@ -65,9 +65,9 @@ export default function PortfolioSlug({ project }) {
         </div>
 
         {project.additionalImages.length > 0 && (
-          <div className="flex flex-col md:flex-row gap-8 mt-16 lg:mt-24 xl:mt-44 pb-20">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mt-16 lg:mt-24 xl:mt-44 pb-20">
             {project.additionalImages.map((image, index) => (
-              <div className="xl:w-1/3" key={index}>
+              <div className="" key={index}>
                 <Image
                   src={image}
                   alt={`Dodatkowe zdjęcie ${index + 1}`}

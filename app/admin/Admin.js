@@ -19,10 +19,13 @@ export default function AdminPanel() {
   const [description, setDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
   const [additionalImages, setAdditionalImages] = useState([]);
+  const [additionalImagesToUpload, setAdditionalImagesToUpload] = useState([]);
   const [imageURL, setImageURL] = useState("");
+  const [imageToUpload, setImageToUpload] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState("");
+  const [existingImageURL, setExistingImageURL] = useState("");
 
   // Sprawdzanie statusu logowania
   useEffect(() => {
@@ -59,31 +62,31 @@ export default function AdminPanel() {
     fetchProjects();
   }, []);
 
-  // Funkcja do obsługi uploadu głównego zdjęcia
-  const handleImageUpload = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
+  // funkcje do dodawania zdjec
 
-    const response = await fetch("/api/uploadImage", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-    if (data.urls) {
-      setImageURL(data.urls[0]);
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImageToUpload(file); // Przechowuj rzeczywisty plik dla późniejszego uploadu
+      setImageURL(URL.createObjectURL(file)); // Używaj do podglądu
     }
   };
 
-  // Funkcja do obsługi uploadu dodatkowych zdjęć
-  const handleAdditionalImageUpload = async (event) => {
-    const files = event.target.files;
-    const formData = new FormData();
+  const handleAdditionalImageUpload = (event) => {
+    const files = Array.from(event.target.files);
 
-    // Dodajemy wszystkie wybrane pliki do FormData
-    for (let file of files) {
-      formData.append("file", file);
-    }
+    setAdditionalImagesToUpload((prev) => [...prev, ...files]); // Dodajemy nowe pliki do istniejących
+    setAdditionalImages((prev) => [
+      ...prev,
+      ...files.map((file) => URL.createObjectURL(file)),
+    ]); // Dodajemy nowe podglądy
+  };
+
+  const uploadImage = async (file) => {
+    console.log(file);
+    const formData = new FormData();
+    formData.append("file", file);
+    if (existingImageURL) formData.append("existingImageURL", existingImageURL);
 
     const response = await fetch("/api/uploadImage", {
       method: "POST",
@@ -91,69 +94,57 @@ export default function AdminPanel() {
     });
 
     const data = await response.json();
-    if (data.urls) {
-      setAdditionalImages((prevImages) => [...prevImages, ...data.urls]);
-    }
+    return data.urls ? data.urls[0] : null;
   };
 
   // Funkcja do zapisywania projektu
   const handleSaveProject = async () => {
-    if (!imageURL || !title || !description) {
-      setError("Wszystkie pola (tytuł, opis, zdjęcie) są wymagane.");
+    if (!imageURL || !additionalImages || !title || !description) {
+      setError("Wszystkie pola (tytuł, opis, zdjęcia) są wymagane.");
       return;
     }
 
-    if (additionalImages.length === 0) {
-      setError("Dodaj przynajmniej jedno dodatkowe zdjęcie.");
+    const uploadedImageURL = await uploadImage(imageToUpload); // Wysyłamy rzeczywisty plik
+    const uploadedAdditionalImages = await Promise.all(
+      additionalImagesToUpload.map((file) => uploadImage(file)) // Wysyłamy dodatkowe pliki
+    );
+
+    if (!uploadedImageURL || uploadedAdditionalImages.includes(null)) {
+      setError("Wystąpił błąd podczas przesyłania zdjęć.");
       return;
     }
 
     const projectData = {
       title,
       description,
-      imageURL,
+      imageURL: uploadedImageURL,
       longDescription,
-      additionalImages,
+      additionalImages: uploadedAdditionalImages,
+      existingImageURL,
     };
 
     if (isEditing) {
-      const response = await fetch(`/api/updateProject/${editingId}`, {
+      await fetch(`/api/updateProject/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(projectData),
       });
-      const data = await response.json();
-      if (data.message) {
-        setIsEditing(false);
-        setEditingId(null);
-        fetchProjects();
-        setError("");
-
-        // Resetowanie pól formularza po zapisaniu
-        setTitle("");
-        setDescription("");
-        setImageURL("");
-        setAdditionalImages([]);
-        setLongDescription("");
-      }
+      setIsEditing(false);
+      setEditingId(null);
     } else {
       const response = await fetch("/api/saveProject", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(projectData),
       });
-      const data = await response.json();
-      if (data.message) {
-        fetchProjects();
-        setError("");
-
-        // Resetowanie pól formularza po zapisaniu
-        setTitle("");
-        setDescription("");
-        setImageURL("");
-        setAdditionalImages([]);
-        setLongDescription("");
-      }
+      fetchProjects();
+      setError("");
+      setTitle("");
+      setDescription("");
+      setImageURL("");
+      setAdditionalImages([]);
+      setLongDescription("");
+      setExistingImageURL("");
     }
   };
 
@@ -166,6 +157,53 @@ export default function AdminPanel() {
     setAdditionalImages(project.additionalImages);
     setIsEditing(true);
     setEditingId(project.id);
+  };
+
+  // funkcja do usuwania zdjecia pojedynczego podczas edytowania
+  const handleRemoveMainImage = async () => {
+    if (!imageURL || !editingId) return;
+
+    try {
+      const response = await fetch(
+        `/api/deleteImage?imageURL=${encodeURIComponent(
+          imageURL
+        )}&projectId=${editingId}&isMainImage=true`,
+        { method: "DELETE" }
+      );
+
+      if (!response.ok) {
+        console.error("Błąd podczas usuwania głównego zdjęcia");
+        return;
+      }
+
+      setImageURL("");
+      setImageToUpload(null);
+    } catch (error) {
+      console.error("Błąd:", error);
+    }
+  };
+
+  const handleRemoveAdditionalImage = async (index) => {
+    const imageURLToRemove = additionalImages[index];
+
+    try {
+      const response = await fetch(
+        `/api/deleteImage?imageURL=${encodeURIComponent(
+          imageURLToRemove
+        )}&projectId=${editingId}&isMainImage=false`,
+        { method: "DELETE" }
+      );
+
+      if (!response.ok) {
+        console.error("Błąd podczas usuwania dodatkowego zdjęcia");
+        return;
+      }
+
+      setAdditionalImages((prev) => prev.filter((_, i) => i !== index));
+      setAdditionalImagesToUpload((prev) => prev.filter((_, i) => i !== index));
+    } catch (error) {
+      console.error("Błąd:", error);
+    }
   };
 
   // Funkcja do usuwania projektu
@@ -284,13 +322,22 @@ export default function AdminPanel() {
           <h3 className="text-white mb-5">Dodaj zdjęcie główne</h3>
           <input
             type="file"
-            onChange={(e) => handleImageUpload(e.target.files[0])}
+            onChange={handleImageUpload}
             className="mb-4 text-white"
           />
 
           {imageURL && (
-            <img src={imageURL} alt="Podgląd" width={100} className="mb-4" />
+            <div className="flex flex-col items-start mb-4">
+              <img src={imageURL} alt="Podgląd" width={100} className="mb-2" />
+              <button
+                onClick={handleRemoveMainImage}
+                className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+              >
+                Usuń zdjęcie główne
+              </button>
+            </div>
           )}
+
           <h3 className="text-white mb-5">Dodaj zdjęcia dodatkowe</h3>
 
           <input
@@ -305,13 +352,20 @@ export default function AdminPanel() {
               <h3 className="text-xl text-white">Dodatkowe zdjęcia:</h3>
               <div className="flex flex-wrap gap-4">
                 {additionalImages.map((url, index) => (
-                  <img
-                    key={index}
-                    src={url}
-                    alt={`Dodatkowe zdjęcie ${index + 1}`}
-                    width={100}
-                    className="mb-4"
-                  />
+                  <div key={index} className="flex flex-col items-start">
+                    <img
+                      src={url}
+                      alt={`Dodatkowe zdjęcie ${index + 1}`}
+                      width={100}
+                      className="mb-2"
+                    />
+                    <button
+                      onClick={() => handleRemoveAdditionalImage(index)}
+                      className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+                    >
+                      Usuń
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -325,7 +379,7 @@ export default function AdminPanel() {
               !description ||
               additionalImages.length === 0
             }
-            className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full p-3 mt-10 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {isEditing ? "Zapisz zmiany" : "Dodaj projekt"}
           </button>
