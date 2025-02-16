@@ -6,13 +6,12 @@ import { collection, query, where, getDocs } from "firebase/firestore"; // Impor
 export async function GET(request, { params }) {
   // Odczekaj na rozpakowanie params przed użyciem jego właściwości
   const { slug } = await params; // Używamy `await`, by rozpakować params
-  console.log("Slug odebrany:", slug); // Logowanie sluga
 
   try {
-    // Tworzymy zapytanie do kolekcji "portfolio" z filtrowaniem po polu 'title'
+    // Tworzymy zapytanie do kolekcji "portfolio" z filtrowaniem po polu 'url'
     const q = query(
       collection(firestore, "portfolio"),
-      where("title", "==", slug) // Szukamy dokumentu, którego 'title' jest równe slug
+      where("url", "==", slug) // Szukamy dokumentu, którego 'url' jest równe slug
     );
 
     // Wykonujemy zapytanie
@@ -20,7 +19,7 @@ export async function GET(request, { params }) {
 
     // Sprawdzamy, czy znaleziono dokument
     if (querySnapshot.empty) {
-      console.error("Projekt o title", slug, "nie został znaleziony.");
+      console.error("Projekt o url", slug, "nie został znaleziony.");
       return NextResponse.json(
         { error: "Projekt nie znaleziony" },
         { status: 404 }

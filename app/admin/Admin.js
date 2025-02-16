@@ -99,19 +99,23 @@ export default function AdminPanel() {
 
   // Funkcja do zapisywania projektu
   const handleSaveProject = async () => {
-    if (!imageURL || !additionalImages || !title || !description) {
+    if (!imageURL || !title || !description) {
       setError("Wszystkie pola (tytuł, opis, zdjęcia) są wymagane.");
       return;
     }
 
-    const uploadedImageURL = await uploadImage(imageToUpload); // Wysyłamy rzeczywisty plik
-    const uploadedAdditionalImages = await Promise.all(
-      additionalImagesToUpload.map((file) => uploadImage(file)) // Wysyłamy dodatkowe pliki
-    );
+    const uploadedImageURL = await uploadImage(imageToUpload);
+    let uploadedAdditionalImages = [];
 
-    if (!uploadedImageURL || uploadedAdditionalImages.includes(null)) {
-      setError("Wystąpił błąd podczas przesyłania zdjęć.");
-      return;
+    if (additionalImagesToUpload.length > 0) {
+      uploadedAdditionalImages = await Promise.all(
+        additionalImagesToUpload.map((file) => uploadImage(file))
+      );
+
+      if (uploadedAdditionalImages.includes(null)) {
+        setError("Wystąpił błąd podczas przesyłania dodatkowych zdjęć.");
+        return;
+      }
     }
 
     const projectData = {
@@ -119,7 +123,8 @@ export default function AdminPanel() {
       description,
       imageURL: uploadedImageURL,
       longDescription,
-      additionalImages: uploadedAdditionalImages,
+      additionalImages:
+        uploadedAdditionalImages.length > 0 ? uploadedAdditionalImages : [],
       existingImageURL,
     };
 
@@ -373,12 +378,7 @@ export default function AdminPanel() {
 
           <button
             onClick={handleSaveProject}
-            disabled={
-              !imageURL ||
-              !title ||
-              !description ||
-              additionalImages.length === 0
-            }
+            disabled={!imageURL || !title || !description}
             className="w-full p-3 mt-10 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {isEditing ? "Zapisz zmiany" : "Dodaj projekt"}

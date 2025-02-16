@@ -2,9 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 
+// Funkcja do konwertowania tytułu na slug
+const slugify = (text) => {
+  return text
+    .normalize("NFD") // Rozdziela znaki diakrytyczne (np. ó → o + ˘)
+    .replace(/[\u0300-\u036f]/g, "") // Usuwa znaki diakrytyczne
+    .replace(/ł/g, "l") // Zamiana specyficznych znaków
+    .replace(/Ł/g, "L")
+    .replace(/\s+/g, "-") // Zamiana spacji na "-"
+    .replace(/[^a-zA-Z0-9-]/g, "") // Usunięcie niepożądanych znaków
+    .toLowerCase(); // Małe litery
+};
+
 export default function PortfolioItem(props) {
   console.log(props);
-  const link = "/portfolio/" + props.title.replace(/\s+/g, "-");
+
+  // Przekształcenie tytułu na slug
+  const link = "/portfolio/" + slugify(props.title);
+
   return (
     <div
       className={`mt-10 md:mt-24 xl:mt-32  md:flex md:gap-24 md:justify-center ${

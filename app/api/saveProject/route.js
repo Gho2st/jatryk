@@ -3,6 +3,18 @@ import { collection, addDoc, Timestamp, getDocs } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
+  // Funkcja do konwertowania tytułu na slug
+  const slugify = (text) => {
+    return text
+      .normalize("NFD") // Rozdziela znaki diakrytyczne (np. ó → o + ˘)
+      .replace(/[\u0300-\u036f]/g, "") // Usuwa znaki diakrytyczne
+      .replace(/ł/g, "l") // Zamiana specyficznych znaków
+      .replace(/Ł/g, "L")
+      .replace(/\s+/g, "-") // Zamiana spacji na "-"
+      .replace(/[^a-zA-Z0-9-]/g, "") // Usunięcie niepożądanych znaków
+      .toLowerCase(); // Małe litery
+  };
+
   const { title, description, imageURL, longDescription, additionalImages } =
     await req.json();
 
@@ -23,6 +35,7 @@ export async function POST(req) {
       additionalImages,
       createdAt: Timestamp.now(),
       order: newOrder,
+      url: slugify(title),
     };
 
     const docRef = await addDoc(collection(firestore, "portfolio"), newProject);
