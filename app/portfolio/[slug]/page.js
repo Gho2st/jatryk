@@ -3,7 +3,6 @@ import PortfolioSlug from "./portfolioSlug";
 // Funkcja do pobierania projektu na podstawie slug
 const fetchProject = async (slug) => {
   try {
-    console.log("Próba pobrania projektu dla sluga:", slug); // Logowanie próby pobrania projektu
     const response = await fetch(
       `https://jatrykdesigner.pl/api/getProjectBySlug/${slug}`
       // `http://localhost:3000/api/getProjectBySlug/${slug}`
@@ -15,7 +14,6 @@ const fetchProject = async (slug) => {
     }
 
     const project = await response.json();
-    console.log("Odpowiedź z serwera:", project); // Logowanie odpowiedzi z serwera
 
     return project;
   } catch (error) {
@@ -29,16 +27,14 @@ export async function generateMetadata({ params }) {
   try {
     // Poczekaj na dostęp do params
     const { slug } = await params;
-    console.log("Slug w generateMetadata:", slug); // Logowanie sluga w generateMetadata
 
     const project = await fetchProject(slug);
-    console.log("Pobrany projekt:", project); // Logowanie pobranego projektu
 
     return {
       title: project ? project.title : "Projekt nie znaleziony",
       description: project ? project.description : "Opis niedostępny",
       alternates: {
-        canonical: `/portfolio/${project.url}`,
+        canonical: `/portfolio/${encodeURIComponent(project.url)}`,
       },
     };
   } catch (error) {
