@@ -26,6 +26,22 @@ export default function AdminPanel() {
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState("");
   const [existingImageURL, setExistingImageURL] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const MAX_FILE_SIZE_MB = 4.5;
+
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setLongDescription("");
+    setImageURL("");
+    setAdditionalImages([]);
+    setImageToUpload(null);
+    setAdditionalImagesToUpload([]);
+    setExistingImageURL("");
+    setIsEditing(false);
+    setEditingId(null);
+  };
 
   // Sprawdzanie statusu logowania
   useEffect(() => {
@@ -46,7 +62,6 @@ export default function AdminPanel() {
     }
   };
 
-  // Wylogowanie użytkownika
   const handleLogout = async () => {
     await signOut(auth);
   };
@@ -65,28 +80,42 @@ export default function AdminPanel() {
   // funkcje do dodawania zdjec
 
   const handleImageUpload = (event) => {
+    setError(""); // Resetowanie błędu przy zmianie pliku
     const file = event.target.files[0];
-    if (file) {
-      setImageToUpload(file); // Przechowuj rzeczywisty plik dla późniejszego uploadu
-      setImageURL(URL.createObjectURL(file)); // Używaj do podglądu
+    if (file && file.size <= 4.5 * 1024 * 1024) {
+      setImageToUpload(file);
+      setImageURL(URL.createObjectURL(file));
+    } else {
+      setError("Plik przekracza maksymalny rozmiar 4.5MB.");
     }
   };
 
   const handleAdditionalImageUpload = (event) => {
+    setError(""); // Resetowanie błędu przy zmianie pliku
     const files = Array.from(event.target.files);
-
-    setAdditionalImagesToUpload((prev) => [...prev, ...files]); // Dodajemy nowe pliki do istniejących
-    setAdditionalImages((prev) => [
-      ...prev,
-      ...files.map((file) => URL.createObjectURL(file)),
-    ]); // Dodajemy nowe podglądy
+    const totalSize = files.reduce((acc, file) => acc + file.size, 0);
+    const currentTotalSize = additionalImagesToUpload.reduce(
+      (acc, file) => acc + file.size,
+      0
+    );
+    if (totalSize + currentTotalSize <= 4.5 * 1024 * 1024) {
+      setAdditionalImagesToUpload((prev) => [...prev, ...files]);
+      setAdditionalImages((prev) => [
+        ...prev,
+        ...files.map((file) => URL.createObjectURL(file)),
+      ]);
+    } else {
+      setError("Łączny rozmiar dodatkowych zdjęć nie może przekraczać 4.5MB.");
+    }
   };
 
   const uploadImage = async (file) => {
     console.log(file);
+    if (!file) return null;
+
+    const uniqueName = `${Date.now()}-${file.name}`; // Unikalna nazwa pliku
     const formData = new FormData();
-    formData.append("file", file);
-    if (existingImageURL) formData.append("existingImageURL", existingImageURL);
+    formData.append("file", file, uniqueName); // Przesyłamy plik z nową nazwą
 
     const response = await fetch("/api/uploadImage", {
       method: "POST",
@@ -103,6 +132,7 @@ export default function AdminPanel() {
       setError("Wszystkie pola (tytuł, opis, zdjęcia) są wymagane.");
       return;
     }
+    setIsLoading(true);
 
     const uploadedImageURL = await uploadImage(imageToUpload);
     let uploadedAdditionalImages = [];
@@ -144,13 +174,9 @@ export default function AdminPanel() {
       });
       fetchProjects();
       setError("");
-      setTitle("");
-      setDescription("");
-      setImageURL("");
-      setAdditionalImages([]);
-      setLongDescription("");
-      setExistingImageURL("");
     }
+    resetForm(); // Resetowanie formularza po zapisaniu projektu
+    setIsLoading(false);
   };
 
   // Funkcja do edytowania projektu
@@ -189,6 +215,8 @@ export default function AdminPanel() {
   };
 
   const handleRemoveAdditionalImage = async (index) => {
+    if (!editingId) return; // Blokada usunięcia, jeśli projekt nie jest edytowany
+
     const imageURLToRemove = additionalImages[index];
 
     try {
@@ -219,6 +247,7 @@ export default function AdminPanel() {
     const data = await response.json();
     if (data.message) {
       fetchProjects();
+      resetForm(); // Resetowanie formularza po usunięciu projektu
     }
   };
 
@@ -272,7 +301,7 @@ export default function AdminPanel() {
           onClick={handleLogin}
           className="w-full p-3 bg-blue-600 text-white  rounded-md hover:bg-blue-700"
         >
-          Zaloguj się
+          {isLoading ? "Logowanie..." : "Zaloguj się"}
         </button>
       </div>
     );
@@ -334,16 +363,20 @@ export default function AdminPanel() {
           {imageURL && (
             <div className="flex flex-col items-start mb-4">
               <img src={imageURL} alt="Podgląd" width={100} className="mb-2" />
-              <button
-                onClick={handleRemoveMainImage}
-                className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
-              >
-                Usuń zdjęcie główne
-              </button>
+              {imageURL && isEditing && (
+                <button
+                  onClick={handleRemoveMainImage}
+                  className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+                >
+                  Usuń zdjęcie główne
+                </button>
+              )}
             </div>
           )}
 
-          <h3 className="text-white mb-5">Dodaj zdjęcia dodatkowe</h3>
+          <h3 className="text-white mb-5">
+            Dodaj zdjęcia dodatkowe (nieobowiazkowe)
+          </h3>
 
           <input
             type="file"
@@ -364,12 +397,14 @@ export default function AdminPanel() {
                       width={100}
                       className="mb-2"
                     />
-                    <button
-                      onClick={() => handleRemoveAdditionalImage(index)}
-                      className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
-                    >
-                      Usuń
-                    </button>
+                    {isEditing && (
+                      <button
+                        onClick={() => handleRemoveAdditionalImage(index)}
+                        className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+                      >
+                        Usuń
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
@@ -381,8 +416,20 @@ export default function AdminPanel() {
             disabled={!imageURL || !title || !description}
             className="w-full p-3 mt-10 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            {isEditing ? "Zapisz zmiany" : "Dodaj projekt"}
+            {isLoading
+              ? "Zapisywanie..."
+              : isEditing
+              ? "Zapisz zmiany"
+              : "Dodaj projekt"}
           </button>
+          {!isEditing && (
+            <button
+              onClick={() => window.location.reload()}
+              className="w-full p-3 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
+              Wyczyść
+            </button>
+          )}
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 text-white">Projekty</h2>

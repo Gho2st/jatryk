@@ -8,6 +8,9 @@ export default function Gallery() {
   const [deleting, setDeleting] = useState(false);
   const [message, setMessage] = useState("");
 
+  // Maksymalny rozmiar pliku: 4.5 MB
+  const MAX_FILE_SIZE = 4.5 * 1024 * 1024;
+
   // Pobiera wszystkie zdjęcia z Firebase Storage
   const fetchGallery = async () => {
     setLoading(true);
@@ -24,15 +27,31 @@ export default function Gallery() {
     }
   };
 
+  // Funkcja do generowania unikalnej nazwy pliku
+  const generateUniqueFileName = (originalFileName) => {
+    const timestamp = new Date().getTime(); // Dodanie znacznika czasu
+    const fileExtension = originalFileName.split(".").pop(); // Rozszerzenie pliku
+    return `${timestamp}_${Math.random()
+      .toString(36)
+      .substr(2, 9)}.${fileExtension}`; // Unikalna nazwa
+  };
+
   // Obsługa uploadu zdjęcia
   const handleImageUpload = async (file) => {
     if (!file) return;
 
+    // Sprawdzanie rozmiaru pliku
+    if (file.size > MAX_FILE_SIZE) {
+      setMessage("❌ Plik jest za duży. Maksymalny rozmiar to 4.5 MB.");
+      return;
+    }
+
     setUploading(true);
     setMessage("");
 
+    const uniqueFileName = generateUniqueFileName(file.name); // Tworzymy unikalną nazwę pliku
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", file, uniqueFileName); // Przesyłamy plik z unikalną nazwą
 
     try {
       const response = await fetch("/api/uploadGalleryImage", {
