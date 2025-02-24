@@ -43,7 +43,9 @@ export default function Portfolio() {
       <div className="grid grid-cols-1 gap-6">
         {projects.length > 0 ? (
           projects.map((item) => (
-            <PortfolioItem key={item.id} {...item} /> // Przekazywanie danych do PortfolioItem
+            <article key={item.id}>
+              <PortfolioItem {...item} />
+            </article>
           ))
         ) : (
           <div className="text-center mt-20">

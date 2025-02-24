@@ -5,7 +5,7 @@ export default function ReviewItem(props) {
     <div className="p-6 bg-white rounded-xl">
       <div className="flex justify-between gap-3">
         <div>
-          <h3 className="font-bold text-lg">{props.name}</h3>
+          <strong className="font-bold text-lg">{props.name}</strong>
         </div>
         <div className="flex">
           <IoStar className="text-2xl text-[#EFB036]" />
