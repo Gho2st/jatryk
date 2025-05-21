@@ -41,15 +41,7 @@ export default function Footer() {
           />
         </div>
       </div>
-      <p className="mt-24 text-center text-white ">
-        @ {currentYear} Jatryk Projekt i realizacja{" "}
-        <Link
-          className="text-[#4A4AFF] font-bold"
-          href="https://www.domiweb.pl/"
-        >
-          Domiweb
-        </Link>
-      </p>
+      <p className="mt-24 text-center text-white ">@ {currentYear} Jatryk</p>
     </footer>
   );
 }
