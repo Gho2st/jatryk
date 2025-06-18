@@ -31,7 +31,7 @@ export default function Nav() {
   return (
     <>
       <header>
-        <nav className="px-6 md:px-16 lg:px-20 xl:px-32 py-10 flex justify-between items-center bg-transparent">
+        <nav className="px-6 md:px-16 lg:px-20 xl:px-32 flex justify-between items-center bg-transparent">
           {/* Logo */}
           <div className="z-50 relative">
             <Link href={"/"} onClick={closeMenu}>
@@ -40,11 +40,10 @@ export default function Nav() {
                 transition={{ duration: 0.3 }} // Krótkie, płynne przejście
               >
                 <Image
-                  src={"/logo2.png"}
-                  width={150}
-                  height={150}
+                  src={"/logo.png"}
+                  width={250}
+                  height={250}
                   alt="Logo grafika Jatryk"
-                  className="invert"
                 />
               </motion.div>
             </Link>
@@ -69,16 +68,16 @@ export default function Nav() {
           {/* Desktop menu */}
           <div className="hidden lg:block xl:text-xl 2xl:text-2xl">
             <ul className="flex gap-10 ">
-              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
+              <li className="hover:text-customBlue transition-colors duration-300">
                 <Link href={"/"}>Strona Główna</Link>
               </li>
-              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
+              <li className="hover:text-[#0055F8] transition-colors duration-300">
                 <Link href={"/#portfolio"}>Portfolio</Link>
               </li>
-              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
+              <li className="hover:text-[#0055F8] transition-colors duration-300">
                 <Link href={"/kontakt"}>Kontakt</Link>
               </li>
-              <li className="hover:text-[#4A4AFF] transition-colors duration-300">
+              <li className="hover:text-[#0055F8] transition-colors duration-300">
                 <Link href={"/o-mnie"}>O Mnie</Link>
               </li>
             </ul>

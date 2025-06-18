@@ -5,7 +5,7 @@ export default function Button({ link, text }) {
   return (
     <Link
       href={link}
-      className="inline-block pr-6  text-xl font-medium bg-[#4A4AFF]
+      className="inline-block pr-6  text-xl font-medium bg-customBlue
           rounded-r-3xl shadow-md transition-all duration-300 ease-in-out transform 
           hover:-translate-y-1 hover:shadow-lg"
     >

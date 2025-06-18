@@ -47,7 +47,7 @@ export default function Hero() {
       <div className="xl:w-1/2 text-center md:text-left">
         <p className="mb-6 uppercase font-bold text-xl">Brand Designer</p>
         <motion.h1
-          className="text-4xl h-20 md:h-auto xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug text-[#4A4AFF]"
+          className="text-4xl h-20 md:h-auto xl:text-5xl 2xl:text-6xl font-extrabold leading-snug xl:leading-snug text-customBlue"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}

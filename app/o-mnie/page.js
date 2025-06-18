@@ -83,7 +83,7 @@ export default function About() {
             <video
               controls
               playsInline
-              className="mx-auto md:w-4/5 xl:w-2/3  border-[#4A4AFF] shadow-xl border-solid border-4 rounded-2xl"
+              className="mx-auto md:w-4/5 xl:w-2/3  border-[#0055F8] shadow-xl border-solid border-4 rounded-2xl"
             >
               <source src="/tiktok.mp4" type="video/mp4" />
               Twój przeglądarka nie obsługuje wideo.

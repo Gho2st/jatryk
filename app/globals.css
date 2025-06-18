@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-customBlue {
+    @apply text-[#0055F8];
+  }
+  .bg-customBlue {
+    @apply bg-[#0055F8];
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

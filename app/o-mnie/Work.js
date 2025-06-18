@@ -38,7 +38,7 @@ export default function Work() {
       {/* Gradientowa kula */}
       <motion.div
         style={{ x: ballX, y: ballY, willChange: "transform" }}
-        className="absolute top-0 left-0 w-[700px] h-[700px] bg-gradient-to-br from-[#4A4AFF] to-[#4A4AFF] rounded-full blur-[120px] opacity-40"
+        className="absolute top-0 left-0 w-[700px] h-[700px] bg-gradient-to-br from-[#4A4AFF] to-[#0055F8] rounded-full blur-[120px] opacity-40"
       />
       <div id="test">
         <h2 className="text-4xl xl:text-5xl leading-snug uppercase text-center">

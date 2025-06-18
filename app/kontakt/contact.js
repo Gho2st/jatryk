@@ -73,7 +73,7 @@ export default function ContactPage() {
       <Nav />
       {!formSubmitted ? (
         <section className="px-6 xl:px-32">
-          <h1 className="text-4xl xl:text-5xl text-[#4A4AFF] 2xl:text-6xl text-center font-semibold my-10 2xl:my-24">
+          <h1 className="text-4xl xl:text-5xl text-customBlue 2xl:text-6xl text-center font-semibold my-10 2xl:my-24">
             Kontakt
           </h1>
           {formError && (
@@ -143,7 +143,7 @@ export default function ContactPage() {
               />
               <div className="flex justify-center xl:justify-start mb-16 xl:mb-32 mt-6">
                 <button
-                  className="px-6 py-3 text-xl font-medium text-white  bg-[#4A4AFF] 
+                  className="px-6 py-3 text-xl font-medium text-white  bg-customBlue 
                    rounded-xl shadow-md transition-all duration-300 ease-in-out transform 
                    hover:-translate-y-1 hover:shadow-lg"
                   type="submit"
@@ -161,7 +161,7 @@ export default function ContactPage() {
                   <FaPhone className="text-2xl" />
                 </div>
                 <Link
-                  className="text-xl hover:text-[#4A4AFF] transition-all ease-in"
+                  className="text-xl hover:text-customBlue transition-all ease-in"
                   href="tel:+48531771378"
                 >
                   (+48) 531 771 378
@@ -178,7 +178,7 @@ export default function ContactPage() {
         </section>
       ) : (
         <div className="px-6 text-center my-10 xl:mt-16">
-          <h2 className="mb-6 text-3xl xl:text-5xl text-[#4A4AFF] font-semibold">
+          <h2 className="mb-6 text-3xl xl:text-5xl text-customBlue font-semibold">
             Dziękuje za wiadomość!
           </h2>
           <p className="text-lg">
