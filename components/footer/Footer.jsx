@@ -31,7 +31,7 @@ export default function Footer() {
             Polityka Prywatności
           </Link>
         </div>
-        <div className="px-6 md:w-1/3">
+        <div className="px-6  md:w-1/3">
           <Image
             src="/logo.png"
             width={100}

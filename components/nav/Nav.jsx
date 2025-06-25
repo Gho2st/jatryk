@@ -41,8 +41,8 @@ export default function Nav() {
               >
                 <Image
                   src={"/logo.png"}
-                  width={250}
-                  height={250}
+                  width={200}
+                  height={200}
                   alt="Logo grafika Jatryk"
                 />
               </motion.div>
