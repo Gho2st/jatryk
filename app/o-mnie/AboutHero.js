@@ -26,7 +26,7 @@ export default function AboutHero() {
           </div>
           <Button text="Zróbmy to razem!" link="/kontakt" />
         </div>
-        <div className="md:w-1/3 xl:w-1/4 flex justify-center items-center">
+        <div className="flex mx-auto justify-center items-center w-1/2 sm:w-1/4 md:w-1/5 xl:w-1/6">
           <motion.div
             animate={{
               rotate: [0, 15, -10, 20, -5, 0], // Nieregularne kąty
@@ -41,7 +41,7 @@ export default function AboutHero() {
             className="cursor-pointer"
           >
             <Image
-              src="/logo4.png"
+              src="/logo-about.png"
               width={100}
               height={100}
               layout="responsive"

@@ -31,7 +31,7 @@ export default function Nav() {
   return (
     <>
       <header>
-        <nav className="px-6 md:px-16 lg:px-20 xl:px-32 flex justify-between items-center bg-transparent">
+        <nav className="px-6 py-10 md:px-16 lg:px-20 xl:px-32 flex justify-between items-center bg-transparent">
           {/* Logo */}
           <div className="z-50 relative">
             <Link href={"/"} onClick={closeMenu}>

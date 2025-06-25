@@ -11,7 +11,7 @@ export default function Button({ link, text }) {
     >
       <div className="flex items-center gap-3">
         <div>
-          <Image src="/logo5.png" width={50} height={100} alt="przycisk" />
+          <Image src="/button_logo.png" width={35} height={35}  alt="przycisk" />
         </div>
         <div>{text}</div>
       </div>
